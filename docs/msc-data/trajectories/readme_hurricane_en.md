@@ -16,7 +16,8 @@ This data is available on the [MSC Datamart](../../msc-datamart/readme_en.md) da
 
 * [Shapefile data available on the MSC Datamart](readme_hurricane-datamart_en.md) 
 * [Data available via geospatial web services GeoMet-Weather](../../msc-geomet/readme_en.md)
-    * The Hurricane response zone is available on GeoMet-Weather
+    * The Hurricane response zone is available on GeoMet-Weather. 
+    * [A web map showcasing hurricane-related layers](readme_hurricane_geomet_en.md) is available.
 
 An [overview and examples to access and use the Meteorological Service of Canada's open data](../../usage/readme_en.md) is available.
 

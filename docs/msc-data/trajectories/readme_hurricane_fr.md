@@ -17,6 +17,7 @@ Ces données sont respectivement disponibles sur les services serveur de donnée
 * [Données shapefile disponibles sur le Datamart du SMC](readme_hurricane-datamart_fr.md) 
 * [Data available via geospatial web services GeoMet-Météo](../../msc-geomet/readme_en.md)
     * La Zone de réaction aux ouragans est disponible sur GeoMet-Meteo
+    * [Une carte interactive web démontrant les couches reliées aux ouragans](readme_hurricane_geomet_fr.md) est disponible.
 
 Un [survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada](../../usage/readme_fr.md) est disponible.
 
