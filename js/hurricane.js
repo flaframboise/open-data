@@ -8,7 +8,7 @@ async function getRadarStartEndTime() {
       let [start, end] = xml.getElementsByTagName('Dimension')[0].innerHTML.split('/')
       /* overwrite end date and set to 48 hours from start data */
       end = new Date(start)
-      end.setHours(end.getHours() + 48)
+      end.setUTCHours(end.getUTCHours() + 48)
       let default_ = xml.getElementsByTagName('Dimension')[0].getAttribute('default')
       return [start, end, default_]
     }
@@ -76,6 +76,7 @@ let layers = [
       })
     }),
     new ol.layer.Image({
+	  opacity: 0.7,
       source: new ol.source.ImageWMS({
         format: 'image/png',
         url: 'https://geo.weather.gc.ca/geomet-beta/',
@@ -106,7 +107,7 @@ function setTime() {
     } else if (current_time >= endTime) {
       current_time = startTime
     } else {
-      current_time = new Date(current_time.setMinutes(current_time.getMinutes() + 180));
+      current_time = new Date(current_time.setUTCMinutes(current_time.getUTCMinutes() + 180));
     }
     layers[1].getSource().updateParams({'TIME': current_time.toISOString().split('.')[0]+"Z"});
     updateInfo(current_time)

@@ -157,7 +157,14 @@
 <li><a href="../readme_rdpa-geomet_fr/">Données courantes et d'archives disponibles via les services web géospatiaux GeoMet-Météo</a></li>
 <li><a href="../readme_rdpa-datamart_fr/">Données courantes GRIB2 disponibles sur le Datamart du SMC</a> </li>
 </ul>
-<p>Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est disponible.</p>
+<p>Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est disponible. Exemple de carte interactive configurée pour afficher la quantité de précipitations [mm] au cours des dernières 24h en utilisant une couche WMS de l'Analyse régionale déterministe de précipitation (ARDP) provenant de GeoMet du SMC:</p>
+<div id="map" style="height: 400px;"></div>
+<div id="controller" role="group" aria-label="Animation controls" style="background: #ececec; padding: 0.5rem;">
+  <button id="play" class="btn btn-primary btn-sm" type="button"><i class="fa fa-play" style="padding: 0rem 1rem"></i></button>
+  <button id="pause" class="btn btn-primary btn-sm" type="button"><i class="fa fa-pause" style="padding: 0rem 1rem"></i></button>
+  <span id="info" style="padding-left: 0.5rem;"></span>
+</div>
+
 <h3 id="licence">Licence</h3>
 <p>La <a href="../../../licence/readme_fr/">licence d’utilisation finale pour les serveurs de données d’Environnement et Changement climatique Canada</a> précise les conditions d'utilisation de ces données.</p>
 <h3 id="metadonnees">Métadonnées</h3>
@@ -173,7 +180,28 @@
 <li><a href="https://collaboration.cmc.ec.gc.ca/cmc/CMOI/product_guide/docs/lib/capa_feuillet_information_f.pdf">Feuillet d'information décrivant le système CaPA</a></li>
 </ul>
 <h2 id="registre-des-changements">Registre des changements</h2>
-<p>La chronologie des changements apportés à l'Analyse régionale déterministe de précipitation (ARPD) est disponible <a href="../changelog_rdpa_fr/">ici</a>.</p></div>
+<p>La chronologie des changements apportés à l'Analyse régionale déterministe de précipitation (ARPD) est disponible <a href="../changelog_rdpa_fr/">ici</a>.</p>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" integrity="sha256-rQq4Fxpq3LlPQ8yP11i6Z2lAo82b6ACDgd35CKyNEBw=" crossorigin="anonymous" /></p>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js" integrity="sha256-77IKwU93jwIX7zmgEBfYGHcmeO0Fx2MoWB/ooh9QkBA=" crossorigin="anonymous"></script>
+<script>
+    function isIE() {
+      return window.navigator.userAgent.match(/(MSIE|Trident)/);
+    }
+    var head = document.getElementsByTagName('head')[0];
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    if (isIE())
+    {
+        js.src = "../../../js/rdpa_ie.js";
+        document.getElementById("controller").setAttribute("hidden", true);
+    }
+    else
+    {
+        js.src = "../../../js/rdpa.js";
+    }
+    head.appendChild(js);
+</script></div>
             </div>
         </div>
 

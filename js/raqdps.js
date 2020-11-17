@@ -28,7 +28,7 @@ let layers = [
       source: new ol.source.ImageWMS({
         format: 'image/png',
         url: 'https://geo.weather.gc.ca/geomet',
-        params: {'LAYERS': 'RAQDPS.EATM_PM2.5', 'TILED': true},
+        params: {'LAYERS': 'RAQDPS.SFC_NO2', 'TILED': true},
       })
     }),
   ]
@@ -54,7 +54,7 @@ function setTime() {
     } else if (current_time >= endTime) {
       current_time = startTime
     } else {
-      current_time = new Date(current_time.setMinutes(current_time.getMinutes() + 60));
+      current_time = new Date(current_time.setUTCMinutes(current_time.getUTCMinutes() + 60));
     }
     layers[1].getSource().updateParams({'TIME': current_time.toISOString().split('.')[0]+"Z"});
     updateInfo(current_time)

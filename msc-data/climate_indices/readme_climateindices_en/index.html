@@ -148,12 +148,14 @@
 <p>High-resolution statistically downscaled climate indices based on model projections from 24 global climate models (GCMs) that participated in the Coupled Model Intercomparison Project Phase 5 (CMIP5) are available. The climate indices are grouped into temperature-related, precipitation-related and agroclimatic categories.</p>
 <h2 id="access">Access</h2>
 <h3 id="how-to-access-the-data">How to access the data</h3>
+<p>This data is available on the <a href="../../../msc-datamart/readme_en/">MSC Datamart</a> data server:</p>
 <ul>
 <li><a href="../readme_climateindices-datamart_en/">NetCDF data available on the MSC Datamart</a></li>
 <li><a href="http://climate-scenarios.canada.ca/?page=downscaled-indices-data">NetCDF multi-model ensemble and individual model datasets available on the Canadian Climate Data and Scenarios site</a></li>
-<li><a href="../../../msc-geomet/readme_en/">Data available via GeoMet-Climat geospatial web services</a></li>
 </ul>
-<p>An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is available.</p>
+<p>An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is available. Example of a web map configured to display the <a href="https://geo.weather.gc.ca/geomet-climate?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities&amp;layer=INDICES.PREP1.RCP26_PCTL25">INDICES.PREP1.RCP26_PCTL25</a> layer served by MSC GeoMet:</p>
+<div id="map" style="height: 400px;"></div>
+
 <h3 id="licence">Licence</h3>
 <p>The <a href="../../../licence/readme_en/">end-user licence for Environment and Climate Change Canada's data servers</a> specifies the conditions of use of this data.</p>
 <h3 id="metadata">Metadata</h3>
@@ -166,7 +168,28 @@
 <li><a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/climate_indices/INDICES_Technical_Documentation_en.pdf">Technical note in PDF format</a></li>
 </ul>
 <h2 id="change-log">Change log</h2>
-<p>Not applicable.</p></div>
+<p>Not applicable.</p>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" integrity="sha256-rQq4Fxpq3LlPQ8yP11i6Z2lAo82b6ACDgd35CKyNEBw=" crossorigin="anonymous" /></p>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js" integrity="sha256-77IKwU93jwIX7zmgEBfYGHcmeO0Fx2MoWB/ooh9QkBA=" crossorigin="anonymous"></script>
+<script>
+    function isIE() {
+      return window.navigator.userAgent.match(/(MSIE|Trident)/);
+    }
+    var head = document.getElementsByTagName('head')[0];
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    if (isIE())
+    {
+        js.src = "../../../js/climateindices_ie.js";
+        document.getElementById("controller").setAttribute("hidden", true);
+    }
+    else
+    {
+        js.src = "../../../js/climateindices.js";
+    }
+    head.appendChild(js);
+</script></div>
             </div>
         </div>
 

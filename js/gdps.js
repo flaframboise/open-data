@@ -6,7 +6,10 @@ async function getRadarStartEndTime() {
     data => {
       let xml = parser.parseFromString(data, 'text/xml')
       let [start, end] = xml.getElementsByTagName('Dimension')[0].innerHTML.split('/')
-      let default_ = xml.getElementsByTagName('Dimension')[0].getAttribute('default')
+      /* overwrite end date and set to 48 hours from start data */
+      end = new Date(start)
+      end.setUTCHours(end.getUTCHours() + 48)
+	    let default_ = xml.getElementsByTagName('Dimension')[0].getAttribute('default')
       return [start, end, default_]
     }
   )
@@ -54,7 +57,7 @@ function setTime() {
     } else if (current_time >= endTime) {
       current_time = startTime
     } else {
-      current_time = new Date(current_time.setMinutes(current_time.getMinutes() + 180));
+      current_time = new Date(current_time.setUTCMinutes(current_time.getUTCMinutes() + 180));
     }
     layers[1].getSource().updateParams({'TIME': current_time.toISOString().split('.')[0]+"Z"});
     updateInfo(current_time)
