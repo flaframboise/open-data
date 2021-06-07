@@ -8,13 +8,25 @@ MSC's public documentation uses [Semantic Versioning](https://semver.org/) for i
 
 # Changelog
 
-## 2.3.34
+## 2.3.35
 	
 * date: TBD
 * announcements:
     * Not announced
 * new content:
     * TBD
+* improvements:
+    * clarified real-time data retention on GeoMet-OGC-API
+* bug fixes:
+    * TBD
+    
+## 2.3.34
+	
+* date: 2021-06-04
+* announcements:
+    * Not announced
+* new content:
+    * Added links to real-time swob and real-time hydrometric data from GeoMet-OGC-API
 * improvements:
     * Updates to use case references
     * Added sentence in WCS GetCoverage section about the use of OUTPUTCRS
