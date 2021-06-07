@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -138,7 +142,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#about-the-no-data-mask" class="nav-link">About the No-data mask</a>
+            <li class="nav-item" data-level="2"><a href="#about-the-no-data-mask-for-the-polar-stereographic-grid" class="nav-link">About the no-data mask for the polar-stereographic grid</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -161,24 +165,28 @@
 <p><img alt="ECCC logo" src="../../../img_eccc-logo.png" /></p>
 <p><a href="../../../readme_en/">TOC</a> &gt; <a href="../../readme_en/">MSC data</a> &gt; <a href="../readme_reps_en/">REPS</a> &gt; REPS on MSC Datamart</p>
 <h1 id="regional-ensemble-prediction-system-reps-data-in-grib2-format">Regional Ensemble Prediction System (REPS) Data in GRIB2 Format</h1>
-<p>This page describes the <a href="../readme_reps_en/">Regional Ensemble Prediction System</a> data available in GRIB2 format.</p>
+<p>This page describes <a href="../readme_reps_en/">Regional Ensemble Prediction System</a> data available in GRIB2 format.</p>
 <h2 id="data-location">Data location</h2>
-<p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available using the HTTP protocol and resides in a directory that is plainly accessible to a web browser. Visiting that directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file. </p>
-<p>The data can be accessed at the following URLs:</p>
+<p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as it becomes available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
+<p>This data is available using the HTTPS protocol and resides in a directory that is plainly accessible from a web browser. Visiting this directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file. </p>
+<p>This data can be accessed at the following URLs:</p>
 <ul>
-<li><a href="https://dd.weather.gc.ca/ensemble/reps/15km/grib2">https://dd.weather.gc.ca/ensemble/reps/15km/grib2/{EnsembleDataType}/{HH}/{hhh}</a></li>
+<li>Polar-stereographic grid at 15km resolution: <a href="https://dd.weather.gc.ca/ensemble/reps/15km/grib2">https://dd.weather.gc.ca/ensemble/reps/15km/grib2/{EnsembleDataType}/{HH}/{hhh}</a></li>
+<li>Rotated lat-lon grid at 10km resolution: <a href="https://dd.meteo.gc.ca/ensemble/reps/10km/grib2">https://dd.meteo.gc.ca/ensemble/reps/10km/grib2/{HH}/{hhh}</a></li>
 </ul>
 <p>where :</p>
 <ul>
-<li><strong>EnsembleDataType</strong> : Can be raw for individual members direct model output or prob for probabilistic products created from all members.</li>
+<li><strong>EnsembleDataType</strong> : Can be "raw" for individual members direct model output or prob for probabilistic products created from all members</li>
 <li><strong>HH</strong> : Forecast run hour in UTC</li>
 <li><strong>hhh</strong> : Forecast time</li>
 </ul>
 <p>A 24-hour history is stored in this directory.</p>
 <h2 id="technical-specification-of-the-grid">Technical specification of the grid</h2>
-<p><img alt="REPS grid" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps.png" /></p>
-<p>Values given to the parameters of the stereographic polar grid:</p>
+<ul>
+<li><strong>Polar-stereographic grid</strong></li>
+</ul>
+<p><img alt="REPS grid ps" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps_ps.png" /></p>
+<p>Values assigned to the parameters of the stereographic polar grid at 15km resolution:</p>
 <table>
 <thead>
 <tr>
@@ -193,11 +201,11 @@
 </tr>
 <tr>
 <td>nj</td>
-<td>610</td>
+<td>510</td>
 </tr>
 <tr>
 <td>resolution at 60° N</td>
-<td>10 km</td>
+<td>15 km</td>
 </tr>
 <tr>
 <td>coordinates of the first grid point</td>
@@ -209,82 +217,118 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><strong>Rotated lat-lon grid</strong></li>
+</ul>
+<p><img alt="Grille du SRPE Rlatlon" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps_rlatlon.png" /></p>
+<p>The following table lists the values of various parameters of the rotated lat-lon grid at 10km resolution:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ni</td>
+<td>908</td>
+</tr>
+<tr>
+<td>nj</td>
+<td>960</td>
+</tr>
+<tr>
+<td>resolution at 60° N</td>
+<td>10 km</td>
+</tr>
+<tr>
+<td>coordinate of the first grid point</td>
+<td>50.76° N ; 20.81° W</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> : The <a href="https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2/update_2.0.8.html">most recent versions of wgrib2</a> and <a href="https://gdal.org/">GDAL</a> support these rotated grids.</p>
 <h2 id="file-name-nomenclature">File name nomenclature</h2>
 <p>NOTE: ALL HOURS ARE IN UTC.</p>
-<p>The files have the following nomenclature:</p>
-<p>CMC-reps-srpe-EnsembleDataType_Variable_LevelType_Level_Resolution_YYYYMMDDHH_Phhh_FileContent.grib2</p>
+<h3 id="polar-stereographic-grid-at-15km-resolution">Polar-stereographic grid at 15km resolution</h3>
+<p>Files have the following nomenclature:</p>
+<pre><code>CMC-reps-srpe-{datatype}_{VAR}_{LVLTYPE}_{LVL}_{resolution}_{YYYYMMDDHH}_P{hhh}_{content}.grib2
+</code></pre>
 <p>where:</p>
 <ul>
-<li><strong>EnsembleDataType</strong> : Can be raw for individual members direct model output or prob for probabilistic products created from all members.</li>
-<li><strong>Variable</strong> : Variable name (ex: WIND) </li>
-<li><strong>LevelType</strong> : Level type (ex: TGL for above ground level)</li>
-<li><strong>Level</strong> : Level value (ex: 10m for 10 meters)</li>
-<li><strong>Resolution</strong> : Grid resolution (ex: ps15km)</li>
-<li><strong>YYYYMMDDHH</strong> : Date of the model run in UTC</li>
-<li><strong>Phhh</strong> : Forecast hour</li>
-<li><strong>FileContent</strong> : can be all-products or allmbrs, indicating that all the members or all the probabilistic products for this variable are contain in the file </li>
+<li><strong>datatype</strong> : Can be "raw" for individual member direct model output or prob for probabilistic products created from all members</li>
+<li><strong>VAR</strong> : Variable name (ex: WIND) </li>
+<li><strong>LVLTYPE</strong> : Level type (ex: SFC for surface, NTAT for the top of the atmosphere, DBLL_10cm for 10cm under the surface, TGL for above ground level)</li>
+<li><strong>LVL</strong> : Level value (ex: 10m for 10 meters)</li>
+<li><strong>resolution</strong> : Grid resolution (ex: ps15km)</li>
+<li><strong>YYYYMMDDHH</strong> : Year, month, and day of the beginning of the forecast and model run in UTC [00, 12]</li>
+<li><strong>P{hhh}</strong> : P is a constant character. "hhh" is the forecast hour [000, 003, 006, ..., 072].</li>
+<li><strong>FileContent</strong> : can be "all-products" or "allmbrs", indicating that all the members or all the probabilistic products for this variable are contained in the file </li>
+<li><strong>grib2</strong> : Constant string indicating that the GRIB2 format is used</li>
 </ul>
+<p>Example of filname: CMC-reps-srpe-prob_TEMP_TGL_2m_ps15km_2021012700_P009_all-products.grib2</p>
+<h3 id="rotated-lat-lon-grid-at-10km-resolution">Rotated lat-lon grid at 10km resolution</h3>
+<p>Files have the following nomenclature:</p>
+<pre><code>{YYYYMMDD}T{HH}Z_MSC_REPS_{VAR}_{LVLTYPE-LVL}_{Grille}{resolution}_PT{hhh}H.grib2
+</code></pre>
+<p>where:</p>
+<ul>
+<li><strong>YYYYMMDD</strong> : Year, month, and day of the beginning of the forecast</li>
+<li><strong>T</strong> : Time delimiter according to ISO8601 norms</li>
+<li><strong>HH</strong> : UTC run time [00, 06, 12, 18]</li>
+<li><strong>Z</strong> : Time zone (UTC hour)</li>
+<li><strong>MSC</strong> : Constant string indicating the Meteorological Service of Canada, source of data</li>
+<li><strong>REPS</strong> : Constant string indicating that the data is from the Regional Ensemble Prediction System</li>
+<li><strong>VAR</strong> : Variable type included in the file (ex: UGRD). This parameter includes also the statistical measure, if relevant (ex: Accum, MAX, Min). See also the note below.</li>
+<li><strong>LVLTYPE-LVL</strong> : Vertical level type and level value [ex: SFC for surface, AGL-10m for 10m above ground level]</li>
+<li><strong>Grille</strong> : Horizontal grid [RLatLon]</li>
+<li><strong>resolution</strong> : 0.09. Indicating resolution in degrees [0.09°(about 10km)] for latitude and longitude directions</li>
+<li><strong>PT{hhh}H</strong> : Forecast hours based on <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> norms. P, T and H are constant character designating Period, Time and Hour. "hhh" is the forecast hour [000, 003, 006, ..., 072]</li>
+<li><strong>grib2</strong> : Constant string indicating that the GRIB2 format is used</li>
+</ul>
+<p>Example of filename :  20201007T00Z_MSC_REPS_TPRATE-Accum24h_SFC_RLatLon0.09x0.09_PT024H.grib2</p>
+<p><strong>Note</strong>: Files contain by default all ensemble members. Files containing <strong>probabilistic products</strong> are identified according to the parameter '-Prob' attached to the variable (ex: 20201007T00Z_MSC_REPS_TPRATE-Accum24h-Prob_SFC_RLatLon0.09x0.09_PT024H.grib2)</p>
 <h2 id="list-of-variables">List of variables</h2>
-<p>The variables for the ensemble products available in the GRIB2 files are listed below. For each variable, the definition, period and frequency are mentioned.</p>
+<p>The variables for the <strong>ensemble products</strong> available in the GRIB2 files are listed below. Some examples are mentioned for the rotated lat-lon grid at 10km resolution.</p>
 <ul>
-<li><strong>FPRATE-Accum-6h_SFC_0</strong> :  Freezing rain accumulated over a 6h period : 6-72h every 6h</li>
-<li><strong>FPRATE-Accum-12h_SFC_0</strong> : Freezing rain accumulated over a 12h period : 12-72h every 6h</li>
-<li><strong>FPRATE-Accum-24h_SFC_0</strong> : Freezing rain accumulated over a 24h period : 24-72h every 6h</li>
-<li><strong>HEATX-Max-24h_TGL_2m</strong> :   Humidex 2m above ground - Maximum over 24h period : 24-72h every 12h</li>
-<li><strong>HEATX_TGL_2m</strong> :           Humidex 2m above ground : 3-72h every 3h</li>
-<li><strong>IPRATE-Accum-6h_SFC_0</strong> :  Ice pellets (water equivalent) accumulated over a 6h period : 6-72h every 6h</li>
-<li><strong>IPRATE-Accum-12h_SFC_0</strong> : Ice pellets (water equivalent) accumulated over a 12h period : 12-72h every 6h</li>
-<li><strong>IPRATE-Accum-24h_SFC_0</strong> : Ice pellets (water equivalent) accumulated over a 24h period : 24-72h every 6h</li>
-<li><strong>RPRATE-Accum-6h_SFC_0</strong> :  Rain accumulated over a 6h period : 6-72h every 6h</li>
-<li><strong>RPRATE-Accum-12h_SFC_0</strong> : Rain accumulated over a 12h period : 12-72h every 6h</li>
-<li><strong>RPRATE-Accum-24h_SFC_0</strong> : Rain accumulated over a 24h period : 24-72h every 6h</li>
-<li><strong>SPRATE-Accum-6h_SFC_0</strong> :  Snow (water equivalent) accumulated over a 6h period : 6-72h every 6h</li>
-<li><strong>SPRATE-Accum-12h_SFC_0</strong> : Snow (water equivalent) accumulated over a 12h period : 12-72h every 6h</li>
-<li><strong>SPRATE-Accum-24h_SFC_0</strong> : Snow (water equivalent) accumulated over a 24h period : 24-72h every 6h</li>
-<li><strong>TEMP-Max-24h_TGL_2m</strong> :    Temperature 2m above ground - Maximum over 24h period : 24-72h every 12h</li>
-<li><strong>TEMP-Min-24h_TGL_2m</strong> :    Temperature 2m above ground - Minimum over 24h period : 24-72h every 12h</li>
-<li><strong>TEMP_TGL_2m</strong> :            Temperature 2m above ground : 3-72h every 3h</li>
-<li><strong>TPRATE-Accum-3h_SFC_0</strong> :  Total precipitation accumulated over a 3h period : 3-72h every 3h</li>
-<li><strong>TPRATE-Accum-6h_SFC_0</strong> :  Total precipitation accumulated over a 6h period : 6-72h every 6h</li>
-<li><strong>TPRATE-Accum-12h_SFC_0</strong> : Total precipitation accumulated over a 12h period : 12-72h every 6h</li>
-<li><strong>TPRATE-Accum-24h_SFC_0</strong> : Total precipitation accumulated over a 24h period : 24-72h every 6h</li>
-<li><strong>TPRATE-Accum-48h_SFC_0</strong> : Total precipitation accumulated over a 48h period : 48-72h every 24h</li>
-<li><strong>TPRATE-Accum-72h_SFC_0</strong> : Total precipitation accumulated over a 72h period : 72-72h every 72h</li>
-<li><strong>WCF-Min-24h_TGL_2m</strong> :     Wind chill factor 2m above ground - Minimum over 24h period : 24-72h every 12h</li>
-<li><strong>WCF_TGL_2m</strong> :             Wind chill 2m above ground : 3-72h every 3h</li>
-<li><strong>WIND-Max-12h_TGL_10m</strong> :   Wind speed 10m above ground - Maximum over 12h period : 12-72h every 12h</li>
-<li><strong>WIND_TGL_10m</strong> :           Wind speed 10m above ground : 3-72h every 3h</li>
+<li><strong>FPRATE</strong> : Freezing rain accumulated over a period. Ex: FPRATE-Accum24h-Prob</li>
+<li><strong>HEATX</strong> :  Humidex 2m above ground. Ex: HEATX-Prob_AGL-2m; HEATX-Max24h-Prob_AGL-2m (maximum humidex 2m above ground over a period of 24h) </li>
+<li><strong>IPRATE</strong> : Ice pellets (water equivalent) accumulated over a period. Ex: IPRATE-Accum12h-Prob</li>
+<li><strong>RPRATE</strong> : Rain accumulated over a period Ex: RPRATE-Accum6h-Prob</li>
+<li><strong>SPRATE</strong> : Snow (water equivalent) accumulated over a period. Ex: SPRATE-Accum24h-Prob</li>
+<li><strong>TEMP</strong> / <strong>TMP</strong> : Temperature 2m above ground. Ex: TMP-Prob_AGL-2m; TMP-Max24h-Prob_AGL-2m (maximum temperature 2m above ground over a 24h period)</li>
+<li><strong>TPRATE</strong> : Total precipitation accumulated over a period. Ex: TPRATE-Max48h-Prob</li>
+<li><strong>WCF</strong> : Wind chill factor 2m above ground. Ex: WCF-Prob_AGL-2m; WCF-Min24h-Prob_AGL-2m (minimum wind chill factor 2m above ground over a 24h period)</li>
+<li><strong>WIND</strong> : Wind speed 10m above ground. Ex: WIND-Prob_AGL-10m; WIND-Max12h-Prob_AGL-10m (maximum wind speed 10m above ground over a 12h period)</li>
 </ul>
-<p>The GRIB2 files variables for individual members are the following. The variables are available from 0 to 72h every 3h:</p>
+<p>The GRIB2 files variables for <strong>individual members</strong> are the following. The variables are available from 0 to 72h, every 3h. Some examples are indicated for the rotated lat-lon grid at 10km resolution.</p>
 <ul>
-<li><strong>AFRAIN_SFC_0</strong> :     Accumulated precipitation in the form of freezing rain</li>
-<li><strong>ARAIN_SFC_0</strong> :      Accumulated precipitation in the form of rain </li>
-<li><strong>AICEP_SFC_0</strong> :      Accumulated precipitation in the form of ice </li>
-<li><strong>ASNOW_SFC_0</strong> :      Accumulated precipitation in the form of snow </li>
-<li><strong>APCP_SFC_0</strong> :       Accumulated precipitation, total of all forms</li>
-<li><strong>SNOD_SFC_0</strong> :       Snow depth </li>
-<li><strong>WEASD_SFC_0</strong> :      Water equivalent of accumulated Snow Depth </li>
-<li><strong>HGT_ISBL_PPPP</strong> :    Geopotential height for different level pressure levels where PPPP is the level in hPa</li>
-<li><strong>RH_ISBL_PPPP</strong> :     Relative humidity at different pressure levels where PPPP is the level in hPa</li>
-<li><strong>UGRD_ISBL_PPPP</strong> :   Winds. U-component at different pressure levelwhere PPPP is the level in hPa</li>
-<li><strong>VGRD_ISBL_PPPP</strong> :   Winds. V-component at different pressure levelwhere PPPP is the level in hPa</li>
-<li><strong>TMP_ISBL_PPPP</strong> :    Temperature at different pressure levels where PPPP is the level in hPa</li>
-<li><strong>RH_TGL_2m</strong> :        Relative humidity at 2m </li>
-<li><strong>TMP_TGL_2m</strong> :       Temperature at 2m </li>
-<li><strong>TCDC_SFC_0</strong> :       Total cloud cover</li>
-<li><strong>PRES_SFC_0</strong> :       Pressure at surface </li>
-<li><strong>MSL_0</strong> :            Mean sea level pressure at surface </li>
-<li><strong>TSOIL_DBLL_10cm</strong> :  Soil temperature. 10cm below surface </li>
-<li><strong>VSOILM_DBLL_10cm</strong> : Volumetric soil moisture. 10cm below the surface </li>
-<li><strong>LHTFL_SFC</strong> :        Latent heat net flux at surface </li>
-<li><strong>SHTFL_SFC_0</strong> :      Sensible heat net flux at surface </li>
-<li><strong>ULWRF_NTAT_0</strong> :     Upward long-wave radiation flux at the nominal top of the atmosphere </li>
-<li><strong>DLWRF_SFC_0</strong> :      Downward long-wave radiation flux at surface </li>
-<li><strong>DSWRF_SFC_0</strong> :      Downward short-wave radiation flux at surface </li>
+<li><strong>AFRAIN</strong> : Accumulated precipitation in the form of freezing rain</li>
+<li><strong>ARAIN</strong> : Accumulated precipitation in the form of rain </li>
+<li><strong>AICEP</strong> : Accumulated precipitation in the form of ice </li>
+<li><strong>ASNOW</strong> : Accumulated precipitation in the form of snow </li>
+<li><strong>APCP</strong> : Accumulated precipitation, total of all forms</li>
+<li><strong>SNOD</strong> : Snow depth </li>
+<li><strong>WEASD</strong> : Water equivalent of accumulated Snow Depth </li>
+<li><strong>HGT</strong> : Geopotential height ay different pressure levels. Ex: HGT_ISBL-0500, geopotential height at 500hPa</li>
+<li><strong>RH</strong> : Relative humidity at different pressure levels. Ex: RH_ISBL-0010, relative himidity at 10hPa; RH_AGL-2m, relative himidity 2m above ground</li>
+<li><strong>UGRD</strong> : Wind U-component at different pressure levels.  Ex: UGRD_ISBL-0700, wind U-component at 700hPa </li>
+<li><strong>VGRD</strong> : Wind V-component at different pressure levels. Ex: VGRD_ISBL-0700, wind V-component at 700hPa</li>
+<li><strong>TMP</strong> : Temperature at different pressure levels. Ex: TMP_AGL-2m, temperature 2m above ground; TMP_ISBL-0050, temperature at 50hPa</li>
+<li><strong>TCDC</strong> : Total cloud cover</li>
+<li><strong>PRES</strong> : Surface pressure</li>
+<li><strong>PRMSL</strong> : Mean sea level pressure</li>
+<li><strong>TSOIL</strong> : Soil temperature 10cm below surface. Ex: TSOIL_DBS-10cm </li>
+<li><strong>VSOILM</strong> : Volumetric soil moisture 10cm below surface. Ex: VSOILM_DBS-10cm  </li>
+<li><strong>LHTFL</strong> : Latent heat net flux at surface </li>
+<li><strong>SHTFL</strong> : Sensible heat net flux at surface </li>
+<li><strong>ULWRF</strong> : Upward long-wave radiation flux at the nominal top of the atmosphere. Ex: ULWRF_NTAT  </li>
+<li><strong>DLWRF</strong> : Downward long-wave radiation flux at surface </li>
+<li><strong>DSWRF</strong> : Downward short-wave radiation flux at surface </li>
 </ul>
-<p>You can find a list in XML format cont.</p>
-<p>A <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/reps_element.xml">list in XML format</a> containing for all the variables names, a description and the units in both French and English, is available.</p>
-<h2 id="about-the-no-data-mask">About the No-data mask</h2>
+<p>A <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/reps_element.xml">list in XML format</a> containing for all the 15km grid variables names, a description and the units in both French and English, is available.</p>
+<h2 id="about-the-no-data-mask-for-the-polar-stereographic-grid">About the no-data mask for the polar-stereographic grid</h2>
 <p>A mask called "No-data" has been added to our GRIB2 encoding process in order to better represent the areas where data are unavailable. This mask only concerns a few grid points with no data, always the same ones, located at the edge of the domain. Note that this mask has no negative effect on the product quality.</p>
 <h2 id="support">Support</h2>
 <p>If you have any questions about this data, please contact us at: <a href="mailto:ec.dps-client.ec@canada.ca">ec.dps-client.ec@canada.ca</a></p>

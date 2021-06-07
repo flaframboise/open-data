@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -171,6 +175,7 @@
 </ul>
 <p>Un historique de 24 heures est conservé dans ce répertoire.</p>
 <h2 id="specification-technique-de-la-grille">Spécification technique de la grille</h2>
+<p><img alt="Image de la grille du SRPDOT" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_rdsps/grille_rdsps.png" /></p>
 <p>Ce tableau répertorie les valeurs de divers paramètres de la grille :</p>
 <table>
 <thead>
@@ -197,18 +202,19 @@
 <h2 id="nomenclature-des-noms-de-fichiers">Nomenclature des noms de fichiers</h2>
 <p>NOTE: TOUTES LES HEURES SONT EN UTC.</p>
 <p>Les noms de fichiers ont la nomenclature suivante :</p>
-<p>{YYYYMMDD}T{HH}Z_MSC_RDSPS-Atlantic-North-West_VAR_LVL_{Grille}{resolution}_P{hhh}.nc </p>
+<pre><code>{YYYYMMDD}T{HH}Z_MSC_RDSPS-Atlantic-North-West_{VAR}_{LVL}_{grille}{resolution}_P{hhh}.nc
+</code></pre>
 <p>où :</p>
 <ul>
 <li><strong>YYYYMMDD</strong> : Année, mois et jour du début de la prévision</li>
 <li><strong>T</strong> : Délimiteur temporel selon les normes ISO8601</li>
 <li><strong>HH</strong> : Heure UTC de la passe [00, 12]</li>
 <li><strong>Z</strong> : Fuseau horaire (heure UTC)</li>
-<li><strong>MSC</strong> : Chaîne de caractères constante pour Meteorological Service of Canada, la source des données </li>
+<li><strong>MSC</strong> : Chaîne de caractères constante pour Meteorological Service of Canada, la source des données</li>
 <li><strong>RDSPS-Atlantic-North-West</strong> : Chaîne de caractères constante indiquant que les données proviennent du Système régional de prévision déterministe d'onde de tempête sur le domaine nord ouest</li>
-<li><strong>VAR</strong> : Type de variable contenue dans le fichier [ETAS]</li>
+<li><strong>VAR</strong> : Variables contenues dans le fichier [ETAS, SSHT, SSH]</li>
 <li><strong>LVL</strong> : Niveau vertical [SFC, pour la surface]</li>
-<li><strong>Grille</strong> : Grille horizontale lat-lon [LatLon]</li>
+<li><strong>grille</strong> : Grille horizontale lat-lon [LatLon]</li>
 <li><strong>resolution</strong> : 0.033x0.033. Signifie une résolution de 0.033° dans les directions longitudinale et latitudinale</li>
 <li><strong>Phhh</strong> : « P » est un caractère constant. « hhh » représente l’heure de prévision [000, 001, 002, ..., 240]</li>
 <li><strong>nc</strong> : Chaîne de caractères constante indiquant que le format est NetCDF</li>
@@ -232,6 +238,20 @@
 <td>etas</td>
 <td>Onde de tempête</td>
 <td>ETAS</td>
+<td>SFC</td>
+<td>m</td>
+</tr>
+<tr>
+<td>ssh_tide</td>
+<td>Hauteur d'eau associée à la marée</td>
+<td>SSHT</td>
+<td>SFC</td>
+<td>m</td>
+</tr>
+<tr>
+<td>zos</td>
+<td>Hauteur de la surface de la mer</td>
+<td>SSH</td>
 <td>SFC</td>
 <td>m</td>
 </tr>

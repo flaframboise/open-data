@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -126,6 +130,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#produits" class="nav-link">Produits</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#documentation-technique" class="nav-link">Documentation technique</a>
               <ul class="nav flex-column">
               </ul>
@@ -145,8 +153,8 @@
 <p><img alt="ECCC logo" src="../../../img_eccc-logo.png" /></p>
 <p><a href="../../../readme_fr/">TdM</a> &gt; <a href="../../readme_fr/">Données du SMC</a> &gt; SGPDV</p>
 <h1 id="donnees-et-produits-du-systeme-global-de-prevision-deterministe-de-vague-sgpdv">Données et Produits du Système global de prévision déterministe de vague (SGPDV)</h1>
-<p>Le Système global de prévision déterministe de vague (SGPDV) produit les prévisions de vagues en utilisant le modèle spectral de prévision de vague de troisième génération WaveWatch III ® (WW3). Le modèle est forcé par les vents à une élévation de 10 mètres du Système global de prévision déterministe. En outre, la prévision de glace de mer du Système global de prévision océan-glace (SGPOG) est utilisée par le modèle pour atténuer ou supprimer la croissance des vagues dans les zones couvertes par respectivement 25% à 75% et plus de 75% de glace.</p>
-<p>Le WW3 (Tolman et le WAVEWATCH III® Development Group 2014) est un modèle spectral de prévision de vague de troisième génération qui résout l’évolution de l’équation du bilan énergétique pour le spectre de vague 2D d’énergie. Le modèle WW3 a été adopté par de nombreux centres nationaux de prévision au cours des dernières années. </p>
+<p>Le Système global de prévision déterministe de vague (SGPDV) produit des prévisions de vagues en utilisant le modèle spectral de prévision de vague de troisième génération WaveWatch III® (WW3). Le modèle est forcé par les vents à une élévation de 10 mètres du <a href="../../nwp_gdps/readme_gdps_fr/">Système global de prévision déterministe (SGPD)</a>. La prévision du GDPS est un modèle couplé atmospère-glace-océan, sa prévision de glace de mer utilisée par la prévision du SGPDV pour atténuer ou supprimer la croissance des vagues dans les zones couvertes par respectivement 25% à 75% et plus de 75% de glace.</p>
+<p>WW3 (Tolman et le WAVEWATCH III® Development Group 2014) est un modèle spectral de prévision de vague de troisième génération qui résout l’évolution de l’équation du bilan énergétique pour le spectre de vague 2D d’énergie. Le modèle WW3 a été adopté par de nombreux centres nationaux de prévision au cours des dernières années.</p>
 <h2 id="acces">Accès</h2>
 <h3 id="comment-acceder-aux-donnees">Comment accéder aux données</h3>
 <p>Ces données sont respectivement disponibles sur les services du serveur de données <a href="../../../msc-datamart/readme_fr/">Datamart du SMC</a> et les services web <a href="../../../msc-geomet/readme_fr/">GeoMet du SMC</a> :</p>
@@ -159,6 +167,12 @@
 <p>La <a href="../../../licence/readme_fr/">licence d’utilisation finale pour les serveurs de données d’Environnement et Changement climatique Canada</a> précise les conditions d'utilisation de ces données.</p>
 <h3 id="metadonnees">Métadonnées</h3>
 <p>À venir.</p>
+<h2 id="produits">Produits</h2>
+<p>Liste et liens vers les produits disponibles pour ce jeu de données :</p>
+<h3 id="cartes-de-prevision">Cartes de prévision</h3>
+<ul>
+<li><a href="https://meteo.gc.ca/model_forecast/wave_f.html">Cartes des modèles de vagues</a></li>
+</ul>
 <h2 id="documentation-technique">Documentation technique</h2>
 <ul>
 <li><a href="https://collaboration.cmc.ec.gc.ca/cmc/CMOI/product_guide/docs/tech_specifications/tech_specifications_GDWPS_f.pdf">Version actuelle du système global de prévision déterministe de vague </a></li>

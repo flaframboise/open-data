@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -126,7 +130,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#specification-technique-de-la-grille" class="nav-link">Spécification technique de la grille</a>
+            <li class="nav-item" data-level="2"><a href="#specification-technique-des-grilles" class="nav-link">Spécification technique des grilles</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -138,7 +142,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#a-propos-du-masque-no-data" class="nav-link">À propos du masque No-Data</a>
+            <li class="nav-item" data-level="2"><a href="#a-propos-du-masque-no-data-sur-la-grille-polaire-stereographique" class="nav-link">À propos du masque No-Data sur la grille polaire stéréographique</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -164,10 +168,11 @@
 <p>Cette page décrit les données du <a href="../readme_reps_fr/">système régional de prévision d'ensemble</a> disponibles en format GRIB2.</p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
 <p>Les données sont accessibles aux adresses suivantes :</p>
 <ul>
-<li><a href="https://dd.meteo.gc.ca/ensemble/reps/15km/grib2">https://dd.meteo.gc.ca/ensemble/reps/15km/grib2/{EnsembleTypeDonnee}/{HH}/{hhh}</a></li>
+<li>Données à 15km sur grille polaire stéréographique : <a href="https://dd.meteo.gc.ca/ensemble/reps/15km/grib2">https://dd.meteo.gc.ca/ensemble/reps/15km/grib2/{EnsembleTypeDonnee}/{HH}/{hhh}</a></li>
+<li>Données à 10km sur grille lat-lon tournée : <a href="https://dd.meteo.gc.ca/ensemble/reps/10km/grib2">https://dd.meteo.gc.ca/ensemble/reps/10km/grib2/{HH}/{hhh}</a></li>
 </ul>
 <p>où :</p>
 <ul>
@@ -176,9 +181,12 @@
 <li><strong>hhh</strong> : Heure de la prévision</li>
 </ul>
 <p>Un historique de 24 heures est conservé dans ce répertoire.</p>
-<h2 id="specification-technique-de-la-grille">Spécification technique de la grille</h2>
-<p><img alt="Grille du SRPE" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps.png" /></p>
-<p>Valeurs données aux paramètres de la grille polaire stéréographique à haute résolution.</p>
+<h2 id="specification-technique-des-grilles">Spécification technique des grilles</h2>
+<ul>
+<li><strong>Grille polaire stéréographique</strong></li>
+</ul>
+<p><img alt="Grille du SRPE ps" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps_ps.png" /></p>
+<p>Valeurs données aux paramètres de la grille polaire stéréographique à 15km de résolution:</p>
 <table>
 <thead>
 <tr>
@@ -193,11 +201,11 @@
 </tr>
 <tr>
 <td>nj</td>
-<td>610</td>
+<td>510</td>
 </tr>
 <tr>
 <td>résolution à 60° N</td>
-<td>10km</td>
+<td>15km</td>
 </tr>
 <tr>
 <td>coordonnées du premier point de grille</td>
@@ -209,81 +217,118 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><strong>Grille lat-lon tournée</strong></li>
+</ul>
+<p><img alt="Grille du SRPE Rlatlon" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/grille_reps_rlatlon.png" /></p>
+<p>Valeurs données aux paramètres de la grille lat-lon tournée à 10km de résolution:</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ni</td>
+<td>908</td>
+</tr>
+<tr>
+<td>nj</td>
+<td>960</td>
+</tr>
+<tr>
+<td>résolution à 60° N</td>
+<td>10km</td>
+</tr>
+<tr>
+<td>coordonnées du premier point de grille</td>
+<td>50.76° N ; 20.81° W</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> : Les <a href="https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2/update_2.0.8.html">versions les plus récentes de wgrib2</a> et <a href="https://gdal.org/">GDAL</a> supportent ces grilles tournées. </p>
 <h2 id="nomenclature-des-noms-de-fichiers">Nomenclature des noms de fichiers</h2>
 <p>NOTE : TOUTES LES HEURES SONT EN UTC.</p>
+<h3 id="grille-polaire-stereographique-a-15km-de-resolution">Grille polaire stéréographique à 15km de résolution</h3>
 <p>Les fichiers ont la nomenclature suivante :</p>
-<p>CMC-reps-srpe-EnsembleTypeDonnee_ChampMeteo_TypeNiveau_Niveau_Résolution_YYYYMMDDHH_Phhh_Contenu.grib2</p>
+<pre><code>CMC-reps-srpe-{datatype}_{VAR}_{LVLTYPE}_{LVL}_{resolution}_{YYYYMMDDHH}_P{hhh}_{content}.grib2
+</code></pre>
 <p>où :</p>
 <ul>
-<li><strong>EnsembleTypeDonnee</strong> : Peut être "raw" pour les sorties brutes des membres individuels ou "prob" pour les produits probabilistes générés à partir de tous les membres</li>
-<li><strong>ChampMeteo</strong> : Nom du champ météo (ex: WIND pour les vents) </li>
-<li><strong>TypeNiveau</strong> : Description du type du niveau (ex: TGL pour au-dessus du niveau du sol)</li>
-<li><strong>Niveau</strong> : Valeur du niveau (ex: 10m pour 10 mètres)</li>
-<li><strong>Résolution</strong>: Résolution de la grille (ex: ps15km)</li>
-<li><strong>YYYYMMDDHH</strong>: Date de la passe du modèle en TU</li>
-<li><strong>Phhh</strong> : Heure de la prévision</li>
-<li><strong>Contenu</strong> : Peut être "all-products" ou "allmbrs" pour indiquer que tous les membres ou tous les produits probabilistes pour cette variable sont regroupés dans ce fichier</li>
+<li><strong>datatype</strong> : Peut être "raw" pour les sorties brutes des membres individuels ou "prob" pour les produits probabilistes générés à partir de tous les membres</li>
+<li><strong>VAR</strong> : Type de variable contenu dans le fichier (ex: UGRD)</li>
+<li><strong>LVLTYPE</strong> :  Niveau vertical (ex: SFC pour la surface, NTAT pour le haut de l'atmosphère, DBLL_10cm couche 10cm sous la surface, TGL pour au-dessus de la surface)</li>
+<li><strong>LVL</strong> : Valeur du niveau (ex: 10m pour 10 mètres)</li>
+<li><strong>resolution</strong>: Résolution de la grille (ex: ps15km) </li>
+<li><strong>YYYYMMDDHH</strong>: Année, mois, jour du début de la prévision et heure UTC de la passe [00, 12]</li>
+<li><strong>P{hhh}</strong> :  « P » est un caractère constant. « hhh » représente l’heure de prévision [000, 003, 006, ..., 072]</li>
+<li><strong>content</strong> : Peut être "all-products" ou "allmbrs" pour indiquer que tous les membres ou tous les produits probabilistes pour cette variable sont regroupés dans ce fichier</li>
+<li><strong>grib2</strong> : Chaîne de caractères constante indiquant que le format est GRIB2.</li>
 </ul>
+<p>Exemple de nom de fichier : CMC-reps-srpe-prob_TEMP_TGL_2m_ps15km_2021012700_P009_all-products.grib2</p>
+<h3 id="grille-lat-lon-tournee-a-10km-de-resolution">Grille lat-lon tournée à 10km de résolution</h3>
+<p>Les fichiers ont la nomenclature suivante :</p>
+<pre><code>{YYYYMMDD}T{HH}Z_MSC_REPS_{VAR}_{LVLTYPE-LVL}_{Grille}{resolution}_PT{hhh}H.grib2
+</code></pre>
+<p>où :</p>
+<ul>
+<li><strong>YYYYMMDD</strong> : Année, mois et jour du début de la prévision</li>
+<li><strong>T</strong> : Délimiteur temporel selon les normes ISO8601</li>
+<li><strong>HH</strong> : Heure UTC de la passe [00, 06, 12, 18]</li>
+<li><strong>Z</strong> : Fuseau horaire (heure UTC)</li>
+<li><strong>MSC</strong> : Chaîne de caractères constante pour Meteorological Service of Canada, la source des données</li>
+<li><strong>REPS</strong> : Chaîne de caractères constante indiquant que les données proviennent du Système régional de prévision d'ensemble</li>
+<li><strong>VAR</strong> : Type de variable contenu dans le fichier (ex: UGRD). Ce paramètre comprend aussi le processus statistique associé si pertinent (ex: Accum, Max, Min). Voir aussi la note ci-dessous.</li>
+<li><strong>LVLTYPE-LVL</strong> : Niveau vertical et hauteur [ex: SFC pour la surface, AGL-10m pour 10m au-dessus du sol]</li>
+<li><strong>Grille</strong> : Grille horizontale [RLatLon]</li>
+<li><strong>resolution</strong> : 0.09. Signifie une résolution de 0.09°(environ 10km) dans les directions longitudinale et latitudinale</li>
+<li><strong>PT{hhh}H</strong> : Echéance temporelle selon la norme <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601</a>. P, T et H sont des caractères constants désignant Période, Temps et Heure. "hhh" représente l’heure de prévision [000, 003, 006, ..., 072]</li>
+<li><strong>grib2</strong> : Chaîne de caractères constante indiquant que le format est GRIB2</li>
+</ul>
+<p>Exemple de nom de fichier : 20201007T00Z_MSC_REPS_TPRATE-Accum24h_SFC_RLatLon0.09x0.09_PT024H.grib2</p>
+<p><strong>Note</strong>: Les fichiers contiennent par défaut tous les membres d'ensemble. Les fichiers contenant les <strong>produits probabilistes</strong> sont identifiés via le paramètre '-Prob' attaché à la variable (ex: 20201007T00Z_MSC_REPS_TPRATE-Accum24h-Prob_SFC_RLatLon0.09x0.09_PT024H.grib2)</p>
 <h2 id="liste-des-variables">Liste des variables</h2>
-<p>Les variables pour les produits d'ensemble disponibles dans les fichiers GRIB2 sont décrites ci-dessous. Pour chaque variable, la définition, la période et la fréquence de disponibilité sont mentionnées.</p>
+<p>Les variables pour les <strong>produits d'ensemble</strong> disponibles dans les fichiers GRIB2 sont décrites ci-dessous. Des exemples sont indiqués pour la grille lat-lon tournée à 10km.</p>
 <ul>
-<li><strong>FPRATE-Accum-6h_SFC_0</strong> :    Pluie verglaçante accumulée sur une période de 6h : 6-72h à chaque 6h</li>
-<li><strong>FPRATE-Accum-12h_SFC_0</strong> :   Pluie verglaçante accumulée sur une période de 12h : 12-72h à chaque 6h</li>
-<li><strong>FPRATE-Accum-24h_SFC_0</strong> :   Pluie verglaçante accumulée sur une période de 24h : 24-72h à chaque 6h</li>
-<li><strong>HEATX-Max-24h_TGL_2m</strong> :     Humidex 2m au-dessus du sol - Maximum sur une période de 24h : 24-72h à chaque 12h</li>
-<li><strong>HEATX_TGL_2m</strong> :             Humidex 2m au-dessus du sol : 3-72h à chaque 3h</li>
-<li><strong>IPRATE-Accum-6h_SFC_0</strong> :    Grésil (équivalent en eau) accumulé sur une période de 6h : 6-72h à chaque 6h</li>
-<li><strong>IPRATE-Accum-12h_SFC_0</strong> :   Grésil (équivalent en eau) accumulé sur une période de 12h : 12-72h à chaque 6h</li>
-<li><strong>IPRATE-Accum-24h_SFC_0</strong> :   Grésil (équivalent en eau) accumulé sur une période de 24h : 24-72h à chaque 6h</li>
-<li><strong>RPRATE-Accum-6h_SFC_0</strong> :    Pluie accumulée sur une période de 6h : 6-72h à chaque 6h</li>
-<li><strong>RPRATE-Accum-12h_SFC_0</strong> :   Pluie accumulée sur une période de 12h : 12-72h à chaque 6h</li>
-<li><strong>RPRATE-Accum-24h_SFC_0</strong> :   Pluie accumulée sur une période de 24h : 24-72h à chaque 6h</li>
-<li><strong>SPRATE-Accum-6h_SFC_0</strong> :    Neige (équivalent en eau) accumulée sur une période de 6h : 6-72h à chaque 6h</li>
-<li><strong>SPRATE-Accum-12h_SFC_0</strong> :   Neige (équivalent en eau) accumulée sur une période de 12h : 12-72h à chaque 6h</li>
-<li><strong>SPRATE-Accum-24h_SFC_0</strong> :   Neige (équivalent en eau) accumulée sur une période de 24h : 24-72h à chaque 6h</li>
-<li><strong>TEMP-Max-24h_TGL_2m</strong> :      Température 2m au-dessus du sol - Maximum sur une période de 24h : 24-72h à chaque 12h</li>
-<li><strong>TEMP-Min-24h_TGL_2m</strong> :      Température 2m au-dessus du sol - Minimum sur une période de 24h : 24-72h à chaque 12h</li>
-<li><strong>TEMP_TGL_2m</strong> :              Température 2m au-dessus du sol : 3-72h à chaque 3h</li>
-<li><strong>TPRATE-Accum-3h_SFC_0</strong> :    Précipitations totales accumulées sur une période de 3h : 3-72h à chaque 3h</li>
-<li><strong>TPRATE-Accum-6h_SFC_0</strong> :    Précipitations totales accumulées sur une période de 6h : 6-72h à chaque 6h</li>
-<li><strong>TPRATE-Accum-12h_SFC_0</strong> :   Précipitations totales accumulées sur une période de 12h : 12-72h à chaque 6h</li>
-<li><strong>TPRATE-Accum-24h_SFC_0</strong> :   Précipitations totales accumulées sur une période de 24h : 24-72h à chaque 6h</li>
-<li><strong>TPRATE-Accum-48h_SFC_0</strong> :   Précipitations totales accumulées sur une période de 48h : 48-72h à chaque 24h</li>
-<li><strong>TPRATE-Accum-72h_SFC_0</strong> :   Précipitations totales accumulées sur une période de 72h : 72-72h à chaque 72h</li>
-<li><strong>WCF-Min-24h_TGL_2m</strong> :       Facteur éolien 2m au-dessus du sol - Minimum sur une période de 24h : 24-72h à chaque 12h</li>
-<li><strong>WCF_TGL_2m</strong> :               Facteur éolien 2m au-dessus du sol : 3-72h à chaque 3h</li>
-<li><strong>WIND-Max-12h_TGL_10m</strong> :     Vitesse du vent 10m au-dessus du sol - Maximum sur une période de 12h : 12-72h à chaque 12h</li>
-<li><strong>WIND_TGL_10m</strong> :             Vitesse du vent 10m au-dessus du sol : 3-72h à chaque 3h</li>
+<li><strong>FPRATE</strong> : Pluie verglaçante accumulée sur une période. Ex: FPRATE-Accum24h-Prob </li>
+<li><strong>HEATX</strong> : Humidex à 2m au-dessus du sol. Ex: HEATX-Prob_AGL-2m; HEATX-Max24h-Prob_AGL-2m (humidex maximum à 2m au-dessus du sol sur une période de 24h) </li>
+<li><strong>IPRATE</strong> : Grésil (équivalent en eau) accumulé sur une période. Ex: IPRATE-Accum12h-Prob</li>
+<li><strong>RPRATE</strong> : Pluie accumulée sur une période. Ex: RPRATE-Accum6h-Prob </li>
+<li><strong>SPRATE</strong> : Neige (équivalent en eau) accumulée sur une période. Ex: SPRATE-Accum24h-Prob </li>
+<li><strong>TEMP</strong> / <strong>TMP</strong> : Température à 2m au-dessus du sol. Ex: TMP-Prob_AGL-2m; TMP-Max24h-Prob_AGL-2m (température maximum à 2m au-dessus du sol sur une période de 24h)</li>
+<li><strong>TPRATE</strong> : Précipitations totales accumulées sur une période. Ex: TPRATE-Max48h-Prob</li>
+<li><strong>WCF</strong> : Facteur éolien à 2m au-dessus du sol. Ex: WCF-Prob_AGL-2m; WCF-Min24h-Prob_AGL-2m (facteur éolien minimum à 2m au-dessus du sol sur une période de 24h)</li>
+<li><strong>WIND</strong> : Vitesse du vent à 10m au-dessus du sol. Ex: WIND-Prob_AGL-10m; WIND-Max12h-Prob_AGL-10m (vitesse du vent maximum à 10m au-dessus du sol sur une période de 12h)</li>
 </ul>
-<p>Les variables pour les membres individuels dans les fichiers GRIB2 sont les suivantes. Les variables sont disponibles de 0 à 72h à chaque 3h :</p>
+<p>Les variables pour les <strong>membres individuels</strong> dans les fichiers GRIB2 sont décrites ci-dessous. Les variables sont disponibles de 0 à 72h chaque 3h. Des exemples sont indiqués pour la grille lat-lon tournée à 10km.</p>
 <ul>
-<li><strong>AFRAIN_SFC_0</strong> :      Précipitations accumulées sous forme de pluie verglaçante </li>
-<li><strong>ARAIN_SFC_0</strong> :       Précipitations accumulées sous forme de pluie </li>
-<li><strong>AICEP_SFC_0</strong> :       Précipitations accumulées sous forme de grésil </li>
-<li><strong>ASNOW_SFC_0</strong> :       Précipitations accumulées sous forme de neige </li>
-<li><strong>APCP_SFC_0</strong> :        Précipitations accumulées sous toutes les formes </li>
-<li><strong>SNOD_SFC_0</strong> :        Épaisseur de la neige au sol </li>
-<li><strong>WEASD_SFC_0</strong> :       Équivalent en eau de l'épaisseur de la neige au sol </li>
-<li><strong>HGT_ISBL_PPPP</strong> :     Hauteur géopotentielle à différents niveaux où PPPP est le niveau de pression en hPa</li>
-<li><strong>RH_ISBL_PPPP</strong> :      Humidité relative à différents niveaux où PPPP est le niveau de pression en hPa</li>
-<li><strong>UGRD_ISBL_PPPP</strong> :    Composante U du vent à différents niveaux où PPPP est le niveau de pression en hPa</li>
-<li><strong>VGRD_ISBL_PPPP</strong> :    Composante V du vent à différents niveaux où PPPP est le niveau de pression en hPa</li>
-<li><strong>TMP_ISBL_PPPP</strong> :     Température à différents niveaux où PPPP est le niveau de pression en hPa</li>
-<li><strong>RH_TGL_2m</strong> :         Humidité relative à 2m </li>
-<li><strong>TMP_TGL_2m</strong> :        Température à 2m </li>
-<li><strong>TCDC_SFC_0</strong> :        Couverture nuageuse totale </li>
-<li><strong>PRES_SFC_0</strong> :        Pression à la surface </li>
-<li><strong>MSL_0</strong> :             Pression au niveau moyen de la mer </li>
-<li><strong>TSOIL_DBLL_10cm</strong> :   Température du sol. 10cm sous la surface </li>
-<li><strong>VSOILM_DBLL_10cm</strong> :  Humidité volumétrique du sol. 10cm sous la surface </li>
-<li><strong>LHTFL_SFC</strong> :         Flux net de chaleur latente à la surface </li>
-<li><strong>SHTFL_SFC_0</strong> :       Flux net de chaleur sensible à la surface </li>
-<li><strong>ULWRF_NTAT_0</strong> :      Flux ascendant de radiation d'ondes longues au sommet nominal de l'atmosphère </li>
-<li><strong>DLWRF_SFC_0</strong> :       Flux descendant de radiation d'ondes longues à la surface </li>
-<li><strong>DSWRF_SFC_0</strong> :       Flux descendant de radiation d'ondes courtes à la surface</li>
+<li><strong>AFRAIN</strong> : Précipitations accumulées sous forme de pluie verglaçante </li>
+<li><strong>ARAIN</strong> : Précipitations accumulées sous forme de pluie </li>
+<li><strong>AICEP</strong> : Précipitations accumulées sous forme de grésil </li>
+<li><strong>ASNOW</strong> : Précipitations accumulées sous forme de neige </li>
+<li><strong>APCP0</strong> : Précipitations accumulées sous toutes les formes </li>
+<li><strong>SNOD</strong> : Épaisseur de la neige au sol </li>
+<li><strong>WEASD</strong> : Équivalent en eau de l'épaisseur de la neige au sol </li>
+<li><strong>HGT</strong> : Hauteur géopotentielle à différents niveaux. Ex: HGT_ISBL-0500, hauteur géopotentielle à 500hPa</li>
+<li><strong>RH</strong> : Humidité relative à différents niveaux. Ex: RH_ISBL-0010, humidité relative à 10hPa; RH_AGL-2m, humidité relative à 2m au-dessus du sol</li>
+<li><strong>UGRD</strong> : Composante U du vent à différents niveaux. Ex: UGRD_ISBL-0700, composante U du vent à 700hPa </li>
+<li><strong>VGRD</strong> : Composante V du vent à différents niveaux. Ex: VGRD_ISBL-0700, composante V du vent à 700hPa </li>
+<li><strong>TMP</strong> : Température à différents niveaux. Ex: TMP_AGL-2m, température à 2m au-dessus du sol; TMP_ISBL-0050, température à 50hPa</li>
+<li><strong>TCDC</strong> : Couverture nuageuse totale </li>
+<li><strong>PRES</strong> : Pression à la surface </li>
+<li><strong>PRMSL</strong> : Pression au niveau moyen de la mer </li>
+<li><strong>TSOIL</strong> : Température du sol 10cm sous la surface. Ex: TSOIL_DBS-10cm </li>
+<li><strong>VSOILM</strong> : Humidité volumétrique du sol 10cm sous la surface. Ex: VSOILM_DBS-10cm </li>
+<li><strong>LHTFL</strong> : Flux net de chaleur latente à la surface </li>
+<li><strong>SHTFL</strong> : Flux net de chaleur sensible à la surface </li>
+<li><strong>ULWRF</strong> : Flux ascendant de radiation d'ondes longues au sommet nominal de l'atmosphère. Ex: ULWRF_NTAT</li>
+<li><strong>DLWRF</strong> : Flux descendant de radiation d'ondes longues à la surface </li>
+<li><strong>DSWR</strong> : Flux descendant de radiation d'ondes courtes à la surface</li>
 </ul>
-<p>Une <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/reps_element.xml">liste en format XML</a> contenant l'information pour toutes les variables, y compris les descriptions et les unités, en français et en anglais est disponible.</p>
-<h2 id="a-propos-du-masque-no-data">À propos du masque No-Data</h2>
+<p>Une <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_reps/reps_element.xml">liste en format XML</a> contenant l'information pour toutes les variables de la grille 15km, y compris les descriptions et les unités, en français et en anglais est disponible.</p>
+<h2 id="a-propos-du-masque-no-data-sur-la-grille-polaire-stereographique">À propos du masque No-Data sur la grille polaire stéréographique</h2>
 <p>Un masque pour mieux représenter les zones où les données ne sont pas disponibles, appelées aussi "No-Data" a été ajouté dans notre procédure d’encodage GRIB2. Ce masque vise uniquement quelques points de grille non-valides (données non-disponibles), toujours les mêmes et qui se situent en périphérie du domaine. Notons que ces points masqués n’ont aucun effet négatif sur la qualité du produit.</p>
 <h2 id="support">Support</h2>
 <p>Pour toute question relative à ces données, merci de nous contacter à l'adresse : <a href="mailto:ec.dps-client.ec@canada.ca">ec.dps-client.ec@canada.ca</a></p>

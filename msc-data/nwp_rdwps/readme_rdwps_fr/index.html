@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -149,34 +153,22 @@
 <p><img alt="ECCC logo" src="../../../img_eccc-logo.png" /></p>
 <p><a href="../../../readme_fr/">TdM</a> &gt; <a href="../../readme_fr/">Données du SMC</a> &gt; SRPDV</p>
 <h1 id="donnees-et-produits-du-systeme-regional-de-prevision-deterministe-de-vague-srpdv">Données et Produits du Système Régional de Prévision Déterministe de Vague (SRPDV)</h1>
-<p>Le Système Régional de Prévision Déterministe de Vague (SRPDV) produit les prévisions de vagues en utilisant le modèle spectral de prévision de vague de troisième génération WaveWatch III ® (WW3). Le modèle est forcé par les vents à une élévation de 10 mètres du Système à haute résolution de prévision déterministe (SHRPD). Une prévision de glace du Système de Prévision du Cycle de l'Eau (SPCE-GLS) est utilisée par le modèle pour atténuer ou supprimer la croissance des vagues dans les zones couvertes par respectivement 25% à 75% et plus de 75% de glace.
-Le WW3 (Tolman et le WAVEWATCH III® Development Group 2014) est un modèle spectral de prévision de vague de troisième génération qui résout l’évolution de l’équation du bilan énergétique pour le spectre de vague 2D d’énergie. Le modèle WW3 a été adopté par de nombreux centres nationaux de prévision au cours des dernières années.</p>
+<h3 id="grands-lacs">Grands Lacs</h3>
+<p>Le Système Régional de Prévision Déterministe de Vague (SRPDV) produit les prévisions de vagues pour les Grands Lacs en utilisant le modèle spectral de prévision de vague de troisième génération WaveWatch III ® (WW3). Le modèle est forcé par les vents à une élévation de 10 mètres du <a href="../../nwp_hrdps/readme_hrdps_fr/">Système à haute résolution de prévision déterministe (SHRPD)</a>. Une prévision de glace du <a href="../../nwp_wcps/readme_wcps_fr/">Système de Prévision du Cycle de l'Eau (SPCE)</a> est utilisée par le modèle pour atténuer ou supprimer la croissance des vagues dans les zones couvertes par respectivement 25% à 75% et plus de 75% de glace.</p>
+<p>Le WW3 (Tolman et le WAVEWATCH III® Development Group 2014) est un modèle spectral de prévision de vague de troisième génération qui résout l’évolution de l’équation du bilan énergétique pour le spectre de vague 2D d’énergie. Le modèle WW3 a été adopté par de nombreux centres nationaux de prévision au cours des dernières années.</p>
 <p>Ce système comprend quatre domaines :</p>
 <ul>
-<li>
-<p>Lac Supérieur : Dimensions de la grille - 658 par 318</p>
-<ul>
-<li>Coordonnées du premier point : 46.2590 N 92.3116 O</li>
+<li>Lac Supérieur</li>
+<li>Lac Huron-Michigan</li>
+<li>Lac Érié</li>
+<li>Lac Ontario</li>
 </ul>
-</li>
-<li>
-<p>Lac Huron-Michigan : Dimensions de la grille - 698 par 573</p>
+<h3 id="golfe-du-saint-laurent">Golfe du Saint-Laurent</h3>
+<p>Le Système Régional de Prévision Déterministe de Vague (SRPDV) produit les prévisions de vagues pour le golfe du Saint-Laurent en utilisant le modèle spectral de prévision de vague de troisième génération WAM. Le modèle est forcé par les vents à une altitude 10 mètres du <a href="../../nwp_rdps/readme_rdps_fr/">Système régional de prévision déterministe (SRPD)</a>. En outre, une prévision de glace de mer provenant du <a href="../../nwp_rdps-cgsl/readme_rdps-cgsl_fr/">Système régional de prévision déterministe - couplé au Golfe du St-Laurent (SRPD-CGSL)</a> est utilisée par le modèle pour supprimer la croissance des vagues dans les zones couvertes par plus de 50 % de glace.</p>
+<p>Le WAM (modèle de vague) (WAMDI Groupe 1988, Komen et al. 1994) est un modèle spectral de prévision de vague de troisième génération qui résout l’évolution de l’équation du bilan énergétique pour le spectre de vague 2D d’énergie, sans hypothèse préalable sur la forme du spectre. Le modèle WAM est utilisé opérationnellement par la communauté internationale depuis le début des années 1990, après une longue période de développement dans le cadre du WAMDIG (modèle de vague et de développement du Groupe de mise en oeuvre).</p>
+<p>Ce système comprend un domaine :</p>
 <ul>
-<li>Coordonnées du premier point : 41.4260 N 88.1452 O</li>
-</ul>
-</li>
-<li>
-<p>Lac Érié : Dimensions de la grille - 398 par 210</p>
-<ul>
-<li>Coordonnées du premier point : 41.2190 N 83.6068 O</li>
-</ul>
-</li>
-<li>
-<p>Lac Ontario : Dimensions de la grille - 348 par 158</p>
-<ul>
-<li>Coordonnées du premier point : 43.0640 N 79.9736 O</li>
-</ul>
-</li>
+<li>Golfe du Saint-Laurent</li>
 </ul>
 <h2 id="acces">Accès</h2>
 <h3 id="comment-acceder-aux-donnees">Comment accéder aux données</h3>
@@ -194,11 +186,15 @@ Le WW3 (Tolman et le WAVEWATCH III® Development Group 2014) est un modèle spec
 <p>Liste et liens vers les produits disponibles pour ce jeu de données :</p>
 <h3 id="cartes-de-prevision">Cartes de prévision</h3>
 <ul>
-<li><a href="https://meteo.gc.ca/model_forecast/wave_f.html">Cartes du modèle de vague régional sur les lacs</a></li>
+<li><a href="https://meteo.gc.ca/model_forecast/wave_f.html">Cartes des modèles de vagues</a></li>
 </ul>
 <h2 id="documentation-technique">Documentation technique</h2>
+<h3 id="grands-lacs_1">Grands Lacs</h3>
 <ul>
 <li><a href="http://collaboration.cmc.ec.gc.ca/cmc/CMOI/product_guide/docs/tech_specifications/tech_specifications_RDWPS_f.pdf">Version actuelle du Système régional de prévision déterministe de vague</a></li>
+</ul>
+<h3 id="golfe-du-saint-laurent_1">Golfe du Saint-Laurent</h3>
+<ul>
 <li><a href="https://collaboration.cmc.ec.gc.ca/cmc/cmoi/product_guide/docs/lib/op_systems/doc_opchanges/technote_rdwps_20120524_f.pdf">Note technique</a></li>
 </ul>
 <h2 id="registre-des-changements">Registre des changements</h2>

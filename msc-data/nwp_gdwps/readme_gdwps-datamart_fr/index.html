@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -126,7 +130,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#specification-technique-de-la-grille" class="nav-link">Spécification technique de la grille</a>
+            <li class="nav-item" data-level="2"><a href="#domaines-disponibles" class="nav-link">Domaines disponibles</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -164,18 +168,18 @@
 <p>Cette page décrit les données <a href="../readme_gdwps_fr/">Système Global de Prévision Déterministe de Vague (SGPDV)</a> disponibles en format GRIB2.</p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
 <p>Les données sont accessibles à adresse suivante :</p>
 <ul>
 <li><a href="https://dd.weather.gc.ca/model_wave/ocean/global/grib2">https://dd.weather.gc.ca/model_wave/ocean/global/grib2/{HH}/</a></li>
 </ul>
-<p>where :</p>
+<p>où :</p>
 <ul>
-<li><strong>HH</strong> : Model run start, in UTC [00 or 12]</li>
+<li><strong>HH</strong> : Heure UTC du début de la passe du modèle [00, 12].</li>
 </ul>
 <p>Un historique de 24 heures est conservé dans ce répertoire.</p>
-<h2 id="specification-technique-de-la-grille">Spécification technique de la grille</h2>
-<p>Ce tableau répertorie les valeurs de divers paramètres de la grille globale SGPDV :</p>
+<h2 id="domaines-disponibles">Domaines disponibles</h2>
+<p>Grille latitude-longitude globale.</p>
 <table>
 <thead>
 <tr>
@@ -194,7 +198,7 @@
 </tr>
 <tr>
 <td>résolution</td>
-<td>0.25° x 0.25°</td>
+<td>0.25°</td>
 </tr>
 <tr>
 <td>coordonnées du premier point de grille</td>
@@ -205,18 +209,19 @@
 <h2 id="nomenclature-des-noms-de-fichiers">Nomenclature des noms de fichiers</h2>
 <p>NOTE: TOUTES LES HEURES SONT EN UTC.</p>
 <p>Les fichiers ont la nomenclature suivante :</p>
-<p>CMC_gdwps_domain_Variable_LevelType_level_latlondddxddd_YYYYMMDDHH_Phhh.grib2</p>
+<p>CMC_gdwps_DOMAIN_VAR_LVL_LVLVAL_{grille}{resolution}_YYYYMMDDHH_P{hhh}.grib2</p>
 <p>où :</p>
 <ul>
 <li><strong>CMC</strong> : Chaîne de caractères constante indiquant que le Centre météorologique canadien (CMC) émet les prévisions.</li>
 <li><strong>gdwps</strong> : Chaîne de caractères constante indiquant que les données proviennent du Système global de prévision déterministe des vagues.</li>
-<li><strong>domain</strong> : Chaîne de caractères constante indiquant le domaine.</li>
-<li><strong>Variable</strong> : Type de variable contenu dans le fichier (ex. : UGRD).</li>
-<li><strong>LevelType</strong> : Type de niveau</li>
-<li><strong>Level</strong> : Valeur du niveau</li>
-<li><strong>latlon0.ddx0.dd</strong> : Chaîne de caractères constante indiquant que la projection utilisée est lat/long à une résolution de 0.dd x 0.dd degré.</li>
+<li><strong>DOMAIN</strong> : Chaîne de caractères indiquant le domaine [global]</li>
+<li><strong>VAR</strong> : Type de variable contenu dans le fichier</li>
+<li><strong>LVL</strong> : Type de niveau</li>
+<li><strong>LVLVAL</strong> : Valeur du niveau</li>
+<li><strong>grille</strong> : Type de grille horizontale [LatLon]</li>
+<li><strong>resolution</strong> : Indique la résolution en degré dans les directions longitudinale et latitudinale [0.25x0.25]</li>
 <li><strong>YYYYMMDD</strong> : Année, mois et jour du début de la prévision.</li>
-<li><strong>HH</strong> : UTC de la passe [00, 12].</li>
+<li><strong>HH</strong> : Heure UTC de la passe [00, 12].</li>
 <li><strong>Phhh</strong> : « P » est un caractère constant. « hhh » représente l’heure de prévision [000, 001, 002, ..., 048, 051, ..., 120].</li>
 <li><strong>grib2</strong> : Chaîne de caractères constante indiquant que le format est GRIB2.</li>
 </ul>
@@ -226,13 +231,11 @@
 <h2 id="niveaux">Niveaux</h2>
 <p>Niveaux qui pourraient être applicables à certains champs :</p>
 <ul>
-<li>Surface</li>
-<li>Hauteur fixe au-dessus du sol</li>
+<li>Surface [SFC]</li>
+<li>Hauteur fixe au-dessus du sol [TGL]</li>
 </ul>
-<p>Note : Les paramètres de houle ne réfèrent plus à la houle totale mais à la première houle. À chaque point du domaine, le spectre d’énergie des vagues peut être divisé entre la mer de vent et un certain nombre de houles. Les deux houles qui contiennent le plus d’énergie sont désignées dans l’ordre comme la première et la deuxième houle. Les paramètres de mer de vent et ceux de houles peuvent être indéfinis à certains points du domaine, pour les premiers s’il y a peu de vent et pour les seconds s’il n’y a que des vagues générées localement. </p>
 <h2 id="liste-des-variables">Liste des variables</h2>
-<p><strong>Champs disponibles : Numéros des paramètres et unités</strong>
-<strong>Pour chaque numéro de paramètre GRIB, ce tableau fournit une brève description, une abréviation alphabétique conventionnelle, les niveaux pour lesquels ce paramètre est disponible et les unités de mesure</strong></p>
+<p>Pour chaque numéro de paramètre GRIB, ce tableau fournit une brève description, une abréviation alphabétique conventionnelle, les niveaux pour lesquels ce paramètre est disponible et les unités de mesure</p>
 <table>
 <thead>
 <tr>
@@ -330,9 +333,14 @@
 </tr>
 </tbody>
 </table>
-<p>Note :</p>
+<h3 id="notes">Notes</h3>
 <ul>
-<li>La direction des composantes u et v du vecteur vent doit être résolue selon les composantes i, j de la grille définie et dans la direction croissante des coordonnées i, j.</li>
+<li>
+<p>La direction des composantes u et v du vecteur vent doit être résolue selon les composantes i, j de la grille définie et dans la direction croissante des coordonnées i, j.</p>
+</li>
+<li>
+<p>Les paramètres de houle représentent la première houle. À chaque point du domaine, le spectre d’énergie des vagues peut être divisé entre la mer de vent et un certain nombre de houles. Les deux houles qui contiennent le plus d’énergie sont désignées dans l’ordre comme la première et la deuxième houle. Les paramètres de mer de vent et ceux de houles peuvent être indéfinis à certains points du domaine, pour les premiers s’il y a peu de vent et pour les seconds s’il n’y a que des vagues générées localement.</p>
+</li>
 </ul>
 <h2 id="support">Support</h2>
 <p>Pour toute question relative à ces données, merci de nous contacter à l'adresse : <a href="mailto:ec.dps-client.ec@canada.ca">ec.dps-client.ec@canada.ca</a></p>

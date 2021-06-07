@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -171,6 +175,7 @@
 </ul>
 <p>A history of 24 hours is maintained in this directory.</p>
 <h2 id="grid-technical-specification">Grid technical specification</h2>
+<p><img alt="RDSPS grid image" src="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/nwp_rdsps/grille_rdsps.png" /></p>
 <p>This table lists the values of different parameters of the RDSPS grid:</p>
 <table>
 <thead>
@@ -197,7 +202,8 @@
 <h2 id="nomenclature-of-file-directories">Nomenclature of file directories</h2>
 <p>NOTE:  ALL HOURS ARE IN UTC.</p>
 <p>File names have the form:</p>
-<p>{YYYYMMDD}T{HH}Z_MSC_RDSPS-Atlantic-North-West_VAR_LVL_{Grille}{resolution}_P{hhh}.nc </p>
+<pre><code>{YYYYMMDD}T{HH}Z_MSC_RDSPS-Atlantic-North-West_{VAR}_{LVL}_{grille}{resolution}_P{hhh}.nc 
+</code></pre>
 <p>Where:</p>
 <ul>
 <li><strong>YYYYMMDD</strong>: Year, month and day of the beginning of the forecast</li>
@@ -206,9 +212,9 @@
 <li><strong>Z</strong> : Time zone (UTC hour)</li>
 <li><strong>MSC</strong> : Constant string indicating the Meteorological Service of Canada, source of data</li>
 <li><strong>RDSPS-Atlantic-North-West</strong> : Constant string indicating that data is from the Regional Deterministic Storm Surge Prediction System over the North-West domain</li>
-<li><strong>VAR</strong> : Variable type included in the file [ETAS]</li>
+<li><strong>VAR</strong> : Variable type included in the file [ETAS, SSHT, SSH]</li>
 <li><strong>LVL</strong> : Vertical level [SFC for the surface]</li>
-<li><strong>Grille</strong> : Horizontal grid lat-lon [LatLon]</li>
+<li><strong>grille</strong> : Horizontal grid lat-lon [LatLon]</li>
 <li><strong>Resolution</strong> : 0.033x0.033. Indicating resolution in degreee 0.033x0.033 in latitude and longitude directions</li>
 <li><strong>Phhh</strong>: P is a constant character. hhh is the forecast hour [000, 001, 002, ..., 240]</li>
 <li><strong>nc</strong>: constant string indicating the NetCDF format is used</li>
@@ -232,6 +238,20 @@
 <td>etas</td>
 <td>Storm surge</td>
 <td>ETAS</td>
+<td>SFC</td>
+<td>m</td>
+</tr>
+<tr>
+<td>ssh_tide</td>
+<td>Tidal heights</td>
+<td>SSHT</td>
+<td>SFC</td>
+<td>m</td>
+</tr>
+<tr>
+<td>zos</td>
+<td>Total Water Level (Sea surface height)</td>
+<td>SSH</td>
 <td>SFC</td>
 <td>m</td>
 </tr>

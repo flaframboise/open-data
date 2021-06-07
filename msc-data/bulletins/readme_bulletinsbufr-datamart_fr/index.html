@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -160,7 +164,7 @@
 <p>Cette page décrit les données des <a href="../readme_bulletins_fr/">bulletins</a> en format binaire.</p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. 
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. 
 Les bulletins BUFR sont disponibles via le  protocole HTTP avec un fureteur standard. </p>
 <p>Les données sont accessibles à l’adresse suivante :</p>
 <ul>
@@ -199,12 +203,12 @@ code BUFR (4e édition - FM94), que l’on trouve dans le guide sur les codes de
 <p>Les documents binaires peuvent être consultés ou convertis en code ASCII, entre autres, au moyen d’un logiciel conforme au code BUFR. Plusieurs centres 
 météorologiques et établissements de recherche météorologiques importants donnent accès au logiciel BUFR, libre de redevances. 
 Le SMC donne accès à libECBUFR, une bibliothèque en format BUFR comprenant des outils pour coder ou décoder du format BUFR à ASCII et l’inverse: 
-https://launchpad.net/libecbufr
+https://github.com/ECCC-MSC/libecbufr
 Une fois la bibliothèque libECBUFR installée, la ligne de commande suivante permet de produire une version lisible des données : 
 bufr_decoder -inbufr data.bufr 
 où, data.bufr est le fichier BUFR.</p>
 <p>Davantage d’information sont disponibles  quant à l’installation et à l’utilisation de libECBUFR dans la foire aux questions suivante : 
-<a href="https://answers.launchpad.net/libecbufr/+faqs">https://answers.launchpad.net/libecbufr/+faqs</a></p>
+<a href="https://github.com/ECCC-MSC/libecbufr/wiki/FAQ">https://github.com/ECCC-MSC/libecbufr/wiki/FAQ</a></p>
 <h2 id="utilitaire-de-recherche-de-bulletins">Utilitaire de recherche de bulletins</h2>
 <p>Pour faciliter la recherche de bulletins, veuillez utiliser notre utilitaire de recherche de bulletins qui se trouve sur le Datamart :
 <a href="https://dd.weather.gc.ca/cgi-bin/bulletin_search.pl">https://dd.weather.gc.ca/cgi-bin/bulletin_search.pl</a></p>

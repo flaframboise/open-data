@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -158,7 +162,7 @@
 <p><a href="../../readme_en/">TOC</a> &gt; <a href="../readme_en/">MSC Datamart</a> &gt; AMQP</p>
 <h1 id="advanced-message-queuing-protocol">Advanced Message Queuing Protocol</h1>
 <h2 id="about">About</h2>
-<p>The HTTP Open Data server called 'MSC Datamart' is a real-time on-demand download service.  The user must, in effect, act to retrieve particular data, and the request will only be successful if the data was previously published on the server.  </p>
+<p>The HTTPS raw data server called 'MSC Datamart' is a real-time on-demand download service.  The user must, in effect, act to retrieve particular data, and the request will only be successful if the data was previously published on the server.  </p>
 <p>The exact time of publication of the data on the MSC Datamart is more or less predictable: a new weather warning can appear at any time, while other data are produced on a fairly regular schedule (but still subject to occasional interruptions).  However, it may be important for some applications that data is obtained as soon as it is published.   </p>
 <p>Attempts to obtain MSC Datamart data as soon as they appear on the server generate numerous premature queries that are obviously unsuccessful. This motivates the use of a more elegant and convenient solution for users.    </p>
 <p>To facilitate the retrieval of timely data on the MSC Datamart, the Meteorological Service of Canada (MSC) has set up a data wire for announcing file availability on the MSC Datamart.  This data wire uses the 'Advanced Message Queuing Protocol' (AMQP) protocol, making it  possible not only to be notified of the availability of products on the MSC Datamart as they are published, but also to receive them automatically. </p>
@@ -217,7 +221,7 @@
 <ul>
 <li>
 <p>AMQP protocol on Wikipedia:
-<a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protoco</a></p>
+<a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol</a></p>
 </li>
 <li>
 <p>AMQP python library: 

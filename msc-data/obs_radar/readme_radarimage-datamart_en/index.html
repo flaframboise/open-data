@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -161,19 +165,20 @@
 <p>These images are used to feed the weather radar page on ECCC's <a href="https://meteo.gc.ca/radar/index_e.html">public forecast website</a>.</p>
 <h2 id="data-location">Data location</h2>
 <p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available via the HTTP protocol. It is possible to access it with a standard browser. In this case, we obtain a list of links giving access to a GIF file.</p>
+<p>The data is available via the HTTPS protocol. It is possible to access it with a standard browser. In this case, we obtain a list of links giving access to a GIF file.</p>
 <p>The radar images are available at the following address:</p>
-<p><a href="https://dd.weather.gc.ca/radar/">https://dd.weather.gc.ca/radar/{PRODUCT}/{FORMAT}/{RADAR_STATION}/{filename}.{file_extension}</a></p>
+<p><a href="https://dd.weather.gc.ca/radar/">https://dd.weather.gc.ca/radar/{PRODUCT}/{FORMAT}/{RADAR_STATION}</a></p>
 <p>where:</p>
 <ul>
-<li>PRODUCT = [24_HR_ACCUM | CAPPI | PRECIPET]</li>
+<li>PRODUCT = [24_HR_ACCUM | CAPPI | DPQPE | PRECIPET]</li>
 <li>FORMAT = [GIF] (other formats may appear in the future)</li>
-<li>RADAR = [WKR, XAM, ...]  radar 3 letter identifier code in capital letters. For the new S-band radars, a 5-letter ID will be used (see section below).</li>
+<li>STATION_RADAR = [WKR, XAM, ...]  radar 3 letter identifier code in capital letters. For the new S-band radars, a 5-letter ID will be used (see section below).</li>
 </ul>
 <p>The past 48 hours of data is available in each directory.</p>
 <p><strong>Notes</strong>: </p>
 <ul>
 <li>Details about these products can be found on the Environment and Climate Change Canada's <a href="https://www.ec.gc.ca/meteo-weather/default.asp?lang=En&amp;n=2B931828-1">About radar</a> page.</li>
+<li>The Dual Polarization Quantitative Precipitation Estimation (DPQPE) product is only available for S-band radars. It is a two-dimensional representation of radar estimated precipitation rate at the lowest sweep of the radar scan (0.4 degrees elevation for the majority of the S-Band radars). So, the estimated precipitation rate is as close as possible to the earth’s surface. DPQPE product is based, among others, on a series of dual-pol processing steps (quality control) to remove, non-weather artifacts from the raw data (volume scans). It is provided in mm/hr for rainfall rates and cm/hr for snowfall rates. This product is used in our high-resolution North American radar composite available in <a href="https://www.canada.ca/en/environment-climate-change/services/weather-general-tools-resources/weathercan.html">WeatherCan</a>, the official mobile application of ECCC.</li>
 <li>A <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/obs_radar/radars_list.pdf">list of radar sites</a> is available. This list will be updated regularly.</li>
 </ul>
 <h2 id="filename-nomenclature">Filename nomenclature</h2>
@@ -228,13 +233,30 @@ To this end and to help the user identify these non-covered areas, red circles h
 </ul>
 <p>ex: 200806191550_WHK_CAPPI_1.5_RAIN_AGL.gif</p>
 <ul>
-<li><strong>24_HR_ACCUM</strong> (based on the PRECIPET product)</li>
+<li><strong>DPQPE</strong></li>
 </ul>
-<p>Shows the rain accumulation, in mm, over the last 24hr period. The product is available every 10 minutes, and for the last 48 hr.</p>
+<p>The DPQPE files have the following nomenclature:</p>
+<ul>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE_XXXXX_Rain.gif</li>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE_XXXXX_Snow.gif</li>
+</ul>
+<p>ex: 20201106T1050Z_MSC_Radar-DPQPE_CASBE_Rain.gif</p>
+<ul>
+<li><strong>24_HR_ACCUM</strong> </li>
+</ul>
+<p>Shows the rain accumulation, in mm, over the last 24hr period. </p>
+<p><strong>Based on PRECIPET</strong></p>
+<p>The product is available for the last 48 hr, every 10 minutes for C-Band radars and every 6 minutes for S-Band radars.</p>
 <ul>
 <li>YYYMMDDHHmm_XXX_24_HR_ACCUM_MM.gif</li>
 </ul>
 <p>ex: 200806161900_WBI_24_HR_ACCUM_MM.gif</p>
+<p><strong>Based on DPQPE</strong></p>
+<p>The product is available every 6 minutes, and for the last 48 hr.</p>
+<ul>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE-XXXXX_Accum24h.gif</li>
+</ul>
+<p>ex: 20201106T1050Z_MSC_Radar-DPQPE-CASBE_Accum24h.gif</p>
 <h2 id="about-the-new-dual-pol-s-band-radars">About the new dual-pol S-Band radars</h2>
 <p>ECCC is in the process of replacing its old C-Band radars with new dual-pol S-Band radars. This radar renewal project extends over several years and the installation of radar is done progressively (For more information, see the Products documentation section below).</p>
 <p>The first radar has already been installed in Radisson (Saskatchewan) and some products are already available. Several changes that impact the products/users are planned in this project. Below are the most important:</p>

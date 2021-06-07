@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -179,8 +183,12 @@
 </ul>
 </li>
 <li>Use cases:<ul>
-<li><a href="../../usage/use-case_arthur/use-case_arthur_en/">Arthur: profits based on probability of precipitation</a><ul>
-<li>Access and use the MSC GeoMet API directly from a Python script</li>
+<li><a href="../../usage/use-case_arthur/use-case_arthur_en/">Arthur: profits based on the probability of precipitation</a>:<ul>
+<li>Access and use the MSC GeoMet data API directly from a Python script, specifically the OGC Web Map Service (WMS) standard to create data tables and graphs</li>
+</ul>
+</li>
+<li><a href="../../usage/use-case_oafeat/use-case_oafeat-script_en/">Cathy: tracking water levels at hydrometric stations</a>:<ul>
+<li>Access and use the MSC GeoMet data API directly from a Python script, specifically the OGC API - Features (OAFeat) standard to create time series and interactive maps</li>
 </ul>
 </li>
 </ul>
@@ -221,10 +229,10 @@ temporal dimensions<ul>
 <li><a href="https://github.com/ECCC-CCCS/geomet-climate">https://github.com/ECCC-CCCS/climate-data-extraction-tool</a></li>
 </ul>
 <h3 id="geomet-ogc-api">GeoMet-OGC-API</h3>
-<p>GeoMet-OGC-API provides access to the Meteorological Service of Canada (MSC) and Environment and Climate Change Canada (ECCC) data via the emerging Open Geospatial Consortium <a href="https://github.com/opengeospatial/WFS_FES">OGC API - Features (WFS 3) standard</a>. It currently provides access to hydrometric and climate data.</p>
+<p>GeoMet-OGC-API provides access to the Meteorological Service of Canada (MSC) and Environment and Climate Change Canada (ECCC) data via the emerging Open Geospatial Consortium <a href="https://github.com/opengeospatial/ogcapi-features">OGC API - Features (WFS 3) standard</a>.</p>
 <p>Service capabilities:</p>
 <ul>
-<li>GeoMet-OGC-API URL: <a href="https://geo.weather.gc.ca/geomet/features/?f=html">https://geo.weather.gc.ca/geomet/features/?f=html</a></li>
+<li>GeoMet-OGC-API URL: <a href="https://api.weather.gc.ca/">https://api.weather.gc.ca/</a></li>
 </ul>
 <h3 id="geomet-beta">GeoMet-Beta</h3>
 <p>GeoMet-Beta provides access to experimental and other non-operational data. This service is not operationally supported.</p>
@@ -232,6 +240,11 @@ temporal dimensions<ul>
 <ul>
 <li>GeoMet-Beta WMS URL: <a href="https://geo.weather.gc.ca/geomet-beta?lang=en&amp;service=WMS&amp;version=1.3.0&amp;request=GetCapabilities">https://geo.weather.gc.ca/geomet-beta?lang=en&amp;service=WMS&amp;version=1.3.0&amp;request=GetCapabilities</a></li>
 <li>GeoMet-Beta WCS URL: <a href="https://geo.weather.gc.ca/geomet-beta?lang=en&amp;service=WCS&amp;version=2.0.1&amp;request=GetCapabilities">https://geo.weather.gc.ca/geomet-beta?lang=en&amp;service=WCS&amp;version=2.0.1&amp;request=GetCapabilities</a></li>
+</ul>
+<h3 id="spatiotemporal-asset-catalog">SpatioTemporal Asset Catalog</h3>
+<p>Experimental support for the <a href="https://github.com/radiantearth/stac-spec">SpatioTemporal Asset Catalog (STAC) specification</a> is available for content of the <a href="../../msc-datamart/readme_en/">MSC Datamart</a>.</p>
+<ul>
+<li>Experimental STAC URL: <a href="https://api.weather.gc.ca/stac/">https://api.weather.gc.ca/stac/</a></li>
 </ul>
 <h2 id="announcement-mailing-list">Announcement mailing list</h2>
 <p>We encourage users to subscribe to the <a href="https://lists.ec.gc.ca/cgi-bin/mailman/listinfo/geomet-info">GeoMet-Info</a> announcement mailing list to be informed of enhancements and changes to the MSC GeoMet services.</p>

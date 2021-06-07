@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -160,7 +164,7 @@
 <p>Cette page décrit les données du <a href="../readme_geps_fr/">Système global de prévision d'ensemble</a> disponibles en format GRIB2.</p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le Protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2. </p>
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2. </p>
 <p>Les données sont accessibles aux adresses suivantes :</p>
 <ul>
 <li><a href="https://dd.meteo.gc.ca/ensemble/geps/grib2">https://dd.meteo.gc.ca/ensemble/geps/grib2/{TYPE}/{HH}/{hhh}/</a></li>
@@ -271,27 +275,27 @@
 <p>Pour les produits probabilistes:</p>
 <ul>
 <li><strong>FPRATE-Accum-12h_SFC_0</strong>    : Pluie verglaçante accumulée sur une période de 12h : 12h-384h à chaque 12h</li>
-<li><strong>FPRATE-Accum-24h_SFC_0</strong>    : Pluie verglaçante accumulée sur une période de 24h : 24h-384h à chaque 24h</li>
+<li><strong>FPRATE-Accum-24h_SFC_0</strong>    : Pluie verglaçante accumulée sur une période de 24h : 24h-384h à chaque 12h</li>
 <li><strong>HEATX-Max-24h_TGL_2m</strong>      : Humidex 2m au-dessus du sol - Maximum sur une période de 24h : 24h-384h à chaque 24h</li>
 <li><strong>HEATX_TGL_2m</strong>              : Humidex 2m au-dessus du sol : 3-384h à chaque 3h</li>
-<li><strong>HGT_ISBL_0500</strong>               : Hauteur du géopotentiel 500 hPa : 3-384h à chaque 12h</li>
+<li><strong>HGT_ISBL_0500</strong>               : Hauteur du géopotentiel 500 hPa : 12-384h à chaque 12h</li>
 <li><strong>IPRATE-Accum-12h_SFC_0</strong>    : Grésil accumulé sur une période de 12h : 12h-384h à chaque 12h</li>
-<li><strong>IPRATE-Accum-24h_SFC_0</strong>    : Grésil accumulé sur une période de 24h : 24h-384h à chaque 24h</li>
+<li><strong>IPRATE-Accum-24h_SFC_0</strong>    : Grésil accumulé sur une période de 24h : 24h-384h à chaque 12h</li>
 <li><strong>PRMSL_MSL_0</strong>              : Pression au niveau de la mer : 3-384h à chaque 12h</li>
-<li><strong>RATE-Accum-12h_SFC_0</strong>    : Pluie accumulée sur une période de 12h : 12h-384h à chaque 12h</li>
-<li><strong>RATE-Accum-24h_SFC_0</strong>    : Pluie accumulée sur une période de 24h : 24h-384h à chaque 24h</li>
-<li><strong>PRATE-Accum-12h_SFC_0</strong>    : Neige (équivalent en eau) accumulée sur une période de 12h : 12h-384h à chaque 12h</li>
-<li><strong>SPRATE-Accum-24h_SFC_0</strong>    : Neige (équivalent en eau) accumulée sur une période de 24h : 24h-384h à chaque 24h</li>
+<li><strong>RPRATE-Accum-12h_SFC_0</strong>    : Pluie accumulée sur une période de 12h : 12h-384h à chaque 12h</li>
+<li><strong>RPRATE-Accum-24h_SFC_0</strong>    : Pluie accumulée sur une période de 24h : 24h-384h à chaque 12h</li>
+<li><strong>SPRATE-Accum-12h_SFC_0</strong>    : Neige (équivalent en eau) accumulée sur une période de 12h : 12h-384h à chaque 12h</li>
+<li><strong>SPRATE-Accum-24h_SFC_0</strong>    : Neige (équivalent en eau) accumulée sur une période de 24h : 24h-384h à chaque 12h</li>
 <li><strong>TCDC_SFC_0</strong>                : Couverture nuageuse : 3-384h à chaque 3h</li>
 <li><strong>TEMP-Max-24h_TGL_2m</strong>       : Température 2m au-dessus du sol - Maximum sur une période de 24h : 24h-384h à chaque 24h</li>
 <li><strong>TEMP-Min-24h_TGL_2m</strong>       : Température 2m au-dessus du sol - Minimum sur une période de 24h : 24h-384h à chaque 24h</li>
 <li><strong>TEMP_TGL_2m</strong>               : Température 2m au-dessus du sol : 3-384h à chaque 3h</li>
-<li><strong>TPRATE-Accum-120h_SFC_0</strong>   : Précipitations totales accumulées sur une période de 120h : 120h-384h à chaque 120h</li>
+<li><strong>TPRATE-Accum-120h_SFC_0</strong>   : Précipitations totales accumulées sur une période de 120h : 120h-384h à chaque 24h</li>
 <li><strong>TPRATE-Accum-12h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 12h : 12h-384h à chaque 12h</li>
-<li><strong>TPRATE-Accum-24h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 24h : 24h-384h à chaque 24h</li>
-<li><strong>TPRATE-Accum-48h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 48h : 48h-384h à chaque 48h</li>
-<li><strong>TPRATE-Accum-72h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 72h : 72h-384h à chaque 72h</li>
-<li><strong>TPRATE-Accum-96h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 96h : 96h-384h à chaque 96h</li>
+<li><strong>TPRATE-Accum-24h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 24h : 24h-384h à chaque 12h</li>
+<li><strong>TPRATE-Accum-48h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 48h : 48h-384h à chaque 24h</li>
+<li><strong>TPRATE-Accum-72h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 72h : 72h-384h à chaque 24h</li>
+<li><strong>TPRATE-Accum-96h_SFC_0</strong>    : Précipitations totales accumulées sur une période de 96h : 96h-384h à chaque 24h</li>
 <li><strong>WCF-Min-24h_TGL_2m</strong>        : Facteur éolien 2m au-dessus du sol - Minimum sur une période de 24h : 24h-384h à chaque 24h</li>
 <li><strong>WCF_TGL_2m</strong>                : Facteur éolien 2m au-dessus du sol : 3-384h à chaque 3h</li>
 <li><strong>WIND-Max-12h_TGL_10m</strong>      : Vitesse du vent 10m au-dessus du sol - Maximum sur une période de 12h : 12h-384h à chaque 12h</li>

@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -164,7 +168,7 @@
 <p>The fields in the GRIB2 dataset of the <a href="../readme_gdps_en/">Global Deterministic Prediction System (GDPS)</a> are available on a latitude-longitude grid corresponding to an effective resolution of about 15 km and 25 km.</p>
 <h2 id="data-location">Data location</h2>
 <p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available via the HTTP protocol. It is possible to access it with a standard browser. In this case, we obtain a list of links giving access to a GRIB2 file.</p>
+<p>The data is available via the HTTPS protocol. It is possible to access it with a standard browser. In this case, we obtain a list of links giving access to a GRIB2 file.</p>
 <p>The data can be accessed at the following address :</p>
 <p><a href="https://dd.weather.gc.ca/model_gem_global">https://dd.weather.gc.ca/model_gem_global/{RES}/grib2/lat_lon/{HH}/{hhh}/</a></p>
 <p>where :</p>
@@ -252,10 +256,23 @@
 <p>CMC_glb_TMP_ISBL_925_latlon.15x.15_2019101512_P042.grib2</p>
 <p>This file originates from the Canadian Meteorological Center (CMC) and contains the data of the GDPS. The data in the file start on October 15th 2019 at 12Z (2019101512). It contains the temperature component (TMP) at the isobaric level 925 mb (ISBL_0925) for the forecast hour 42 (P042) in GRIB2 format (.grib2).</p>
 <h2 id="levels">Levels</h2>
-<p>Vertical coverage of three-dimensional fields is provided by up to 28 isobaric levels.</p>
+<p>Vertical coverage of three-dimensional fields is provided by up to 33 isobaric levels.</p>
+<ul>
+<li>
 <p>Isobaric levels (hPa): 1015, 1000, 985, 970, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 275, 250, 225, 200, 175, 150, 100, 50.</p>
-<p>Some fields receive limited three-dimensional coverage of 4 levels in the vertical.</p>
-<p>Isobaric levels (reduced coverage, hPa): 850, 700, 500, 250.</p>
+<ul>
+<li>
+<p>Additional levels 30, 20, 10, 5 et 1 hPa for the variables TMP, HGT, UGRD, VGRD, WIND, WDIR, SPFH</p>
+</li>
+<li>
+<p>Additional levels 30, 20 et 10 hPa for the variables RH et DEPR</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Some fields receive limited three-dimensional coverage of five levels in the vertical, namely 850, 700, 600, 500, 250 hPa.</p>
+</li>
+</ul>
 <p>Additional levels that may be applicable to a given parameter are :</p>
 <ul>
 <li>Surface</li>

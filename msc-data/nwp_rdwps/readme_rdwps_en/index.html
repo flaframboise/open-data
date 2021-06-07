@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -134,7 +138,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#change-log" class="nav-link">Change log</a>
+            <li class="nav-item" data-level="2"><a href="#changelog" class="nav-link">Changelog</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -149,34 +153,22 @@
 <p><img alt="ECCC logo" src="../../../img_eccc-logo.png" /></p>
 <p><a href="../../../readme_en/">TOC</a> &gt; <a href="../../readme_en/">MSC data</a> &gt; RDWPS</p>
 <h1 id="data-and-products-of-the-regional-deterministic-wave-prediction-system-rdwps">Data and Products of the Regional Deterministic Wave Prediction System (RDWPS)</h1>
-<p>The Regional Deterministic Wave Prediction System (RDWPS) produces wave forecasts using the third generation spectral wave model WaveWatch III®. The model is forced by the 10 meters winds from the High Resolution Deterministic Prediction System (HRDPS). An ice forecast from the Water Cycle Prediction System of the Great Lakes (WCPS-GLS) is used by the model to dampen or suppress wave growth in areas covered respectively with 25% to 75% and more than 75% ice. 
-The WW3 (Tolman and the WAVEWATCH III® Development Group 2014) is a third generation spectral wave prediction model that solves the evolution of the energy balance equation for the 2-D wave energy spectrum without any prior assumptions on the shape of the spectrum. The WW3 model has been implemented by a growing number of national operational forecasting centres over the last several years. </p>
-<p>This system includes four domains :</p>
+<h3 id="great-lakes">Great Lakes</h3>
+<p>The Regional Deterministic Wave Prediction System (RDWPS) produces wave forecasts for the Great Lakes using the third generation spectral wave model WaveWatch III®. The model is forced by the 10 meters winds from the <a href="../../nwp_hrdps/readme_hrdps_en/">High Resolution Deterministic Prediction System (HRDPS)</a>. An ice forecast from the <a href="../../nwp_wcps/readme_wcps_en/">Water Cycle Prediction System of the Great Lakes (WCPS)</a> is used by the model to dampen or suppress wave growth in areas covered respectively with 25% to 75% and more than 75% ice.</p>
+<p>WW3 (Tolman and the WAVEWATCH III® Development Group 2014) is a third generation spectral wave prediction model that solves the evolution of the energy balance equation for the 2-D wave energy spectrum without any prior assumptions on the shape of the spectrum. The WW3 model has been implemented by a growing number of national operational forecasting centres over the last several years.</p>
+<p>This system includes four domains:</p>
 <ul>
-<li>
-<p>Lake Superior: Grid dimensions - 658 per 318</p>
-<ul>
-<li>Coordinates of first grid point : 46.2590 N 92.3116 W</li>
+<li>Lake Superior</li>
+<li>Lake Huron-Michigan</li>
+<li>Lake Erie</li>
+<li>Lake Ontario</li>
 </ul>
-</li>
-<li>
-<p>Lake Huron-Michigan: Grid dimensions - 698 per 573</p>
+<h3 id="gulf-of-saint-lawrence">Gulf of Saint Lawrence</h3>
+<p>The Regional Deterministic Wave Prediction System (RDWPS) produces wave forecasts for the Gulf of Saint Lawrence using the third generation spectral wave model WAM. The model is forced by the 10 meters winds from the <a href="../../nwp_rdps/readme_rdps_en/">Regional Deterministic Prediction System</a>. In addition, a sea ice forecast from the <a href="../../nwp_rdps-cgsl/readme_rdps-cgsl_en/">Regional Deterministic Prediction System - Coupled to Gulf of St. Lawrence (RDPS-CGSL)</a> is used by the model to suppress wave growth in areas covered with greater than 50% ice.</p>
+<p>WAM (WAve Model) (WAMDI Group 1988, Komen et al. 1994) is a third generation spectral wave prediction model that solves the evolution of the energy balance equation for the 2-D wave energy spectrum without any prior assumptions on the shape of the spectrum. The WAM model has been operational in the international community since the early nineties after a long period of development under the WAMDIG (WAve Model Development and Implementation Group).</p>
+<p>This system includes one domain:</p>
 <ul>
-<li>Coordinates of first grid point : 41.4260 N 88.1452 W</li>
-</ul>
-</li>
-<li>
-<p>Lake Erie: Grid dimensions - 398 per 210</p>
-<ul>
-<li>Coordinates of first grid point : 41.2190 N 83.6068 W</li>
-</ul>
-</li>
-<li>
-<p>Lake Ontario: Grid dimensions - 348 per 158</p>
-<ul>
-<li>Coordinates of first grid point : 43.0640 N 79.9736 W</li>
-</ul>
-</li>
+<li>Gulf of Saint Lawrence</li>
 </ul>
 <h2 id="access">Access</h2>
 <h3 id="how-to-access-the-data">How to access the data</h3>
@@ -194,14 +186,18 @@ The WW3 (Tolman and the WAVEWATCH III® Development Group 2014) is a third gener
 <p>List and links to the products available for this dataset :</p>
 <h3 id="forecast-maps">Forecast maps</h3>
 <ul>
-<li><a href="https://weather.gc.ca/model_forecast/wave_e.html">Maps of the regional wave model on lakes</a></li>
+<li><a href="https://weather.gc.ca/model_forecast/wave_e.html">Maps of wave models</a></li>
 </ul>
 <h2 id="technical-documentation">Technical documentation</h2>
+<h3 id="great-lakes_1">Great Lakes</h3>
 <ul>
 <li><a href="http://collaboration.cmc.ec.gc.ca/cmc/CMOI/product_guide/docs/tech_specifications/tech_specifications_RDWPS_e.pdf">Current version of the Regional Deterministic Wave Prediction System</a></li>
+</ul>
+<h3 id="gulf-of-saint-lawrence_1">Gulf of Saint Lawrence</h3>
+<ul>
 <li><a href="https://collaboration.cmc.ec.gc.ca/cmc/cmoi/product_guide/docs/lib/op_systems/doc_opchanges/technote_rdwps_20120524_e.pdf">Technical Note</a></li>
 </ul>
-<h2 id="change-log">Change log</h2>
+<h2 id="changelog">Changelog</h2>
 <p>The chronology of changes to the Regional Deterministic Wave Prediction System (RDWPS) is available <a href="../changelog_rdwps_en/">here</a>.</p></div>
             </div>
         </div>

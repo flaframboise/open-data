@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -103,7 +107,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../usage/tutorial_OAFeat_QGIS_en/" class="nav-link">
+                                <a rel="prev" href="../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i>
                                 </a>
                             </li>
@@ -452,7 +456,7 @@
 <tbody>
 <tr>
 <td>STYLE</td>
-<td>The name of the style used to create the legend image. The name individual layer styles can be retrieved using a <a href="#getcapabilities">WMS GetCapabilities</a> request. If this parameter is not specified a request will return the layer's default style.</td>
+<td>The name of the style used to create the legend image. The name individual layer styles can be retrieved using a <a href="#getcapabilities">WMS GetCapabilities</a> request. If this parameter is not specified a request will return the layer's default style. Note: Make sure to type the singular form of this parameter in the <code>GetLegendGraphic</code> request and not the plural form (i.e. <code>STYLES</code>), because it will output the layer's default style instead of the requested style.</td>
 </tr>
 <tr>
 <td>SLD</td>
@@ -661,7 +665,7 @@ like this:</p>
 </tr>
 <tr>
 <td>OUTPUTCRS</td>
-<td>The coordinate reference system (CRS) used to return the coverage layer to the user. This parameter can be different from <code>SUBSETTINGCRS</code></td>
+<td>The coordinate reference system (CRS) used to return the coverage layer to the user. This parameter can be different from <code>SUBSETTINGCRS</code>. Note: The use of this parameter is <strong>strongly recommended</strong> to guarantee accuracy for <code>WCS GetCoverage</code> responses.</td>
 </tr>
 <tr>
 <td>SUBSET=axis()</td>
@@ -748,73 +752,113 @@ the <code>TIME</code> and <code>DIM_REFERENCE_TIME</code> usage is the same.</p>
 <p>GeoMet-Climate and GeoMet-Weather WCS are used through the <a href="https://climate-change.canada.ca/climate-data/#/">Climate data extraction tool</a> of the <a href="https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services.html">Canadian Centre for Climate Services portal</a>.</p>
 <p>One can select a variable, region of interest, temporal information and output format on the extraction tool to retrieve the raw coverage information.</p>
 <h2 id="ogc-api-features">OGC API - Features</h2>
-<p>The <a href="https://github.com/opengeospatial/WFS_FES">OGC API - Features</a> (WFS 3) provides a specification to querying geospatial data on the web.</p>
-<p>The service operates over HTTP and requests are made via HTTP GET requests. No HTTP authentication is required. Responses are JSON/<a href="https://geojson.org/">GeoJSON</a> by default, but can be set to html using <code>f=html</code>.</p>
-<p>The first parameter in a query is specified with <code>?</code> and subsequent parameters with <code>&amp;</code>.</p>
+<p>The <a href="https://github.com/opengeospatial/WFS_FES">OGC API - Features</a> (WFS 3) provides a specification to querying geospatial data on the web. The service operates over HTTPS and requests are made via HTTPS GET requests. No HTTPS authentication is required.</p>
 <h3 id="service-endpoints">Service endpoints</h3>
-<p><a href="https://geo.weather.gc.ca/geomet/features">https://geo.weather.gc.ca/geomet/features</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/">https://api.weather.gc.ca/</a></li>
+</ul>
 <h4 id="openapi-30-document">OpenAPI 3.0 document</h4>
-<p><a href="https://geo.weather.gc.ca/geomet/features/api">https://geo.weather.gc.ca/geomet/features/api</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/openapi?f=html">https://api.weather.gc.ca/openapi?f=html</a></li>
+</ul>
 <h3 id="feature-collections">Feature collections</h3>
 <p>List all feature collections available:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections">https://geo.weather.gc.ca/geomet/features/collections</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections">https://api.weather.gc.ca/collections</a></li>
+</ul>
 <p>The response provides a list of feature collections with associated metadata (title, description, links, extent, CRS).</p>
 <h3 id="feature-collection">Feature collection</h3>
 <p>List a single feature collection:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-stations">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-stations</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-stations">https://api.weather.gc.ca/collections/hydrometric-stations</a></li>
+</ul>
 <h3 id="inspecting-feature-collection-schema">Inspecting feature collection schema</h3>
 <p>Issue a query returning a single feature to inspect geometry and properties:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?limit=1">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?limit=1</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?limit=1">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?limit=1</a></li>
+</ul>
 <h3 id="querying">Querying</h3>
-<p>Querying feature collections allows for spatial, temporal and property filtering. Filter parameters can be combined to formulate an exclusive ('and') search.</p>
-<p>The examples that follow use the <a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean">hydrometric daily mean</a> feature collection.</p>
+<p>Querying feature collections allows for spatial, temporal and property filtering. Filter parameters can be combined to formulate an exclusive ('and') search. The first parameter in a query is specified with <code>?</code> and subsequent parameters with <code>&amp;</code>.</p>
+<p>The examples that follow use the <a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean">hydrometric daily mean</a> feature collection.</p>
 <p>Default query, no filters:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items</a></li>
+</ul>
 <h4 id="spatial">Spatial</h4>
 <p>Query by bounding box (minx, miny, maxx, maxy):</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?bbox=-140,43.2,-65,67">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?bbox=-140,43.2,-65,67</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?bbox=-140,43.2,-65,67">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?bbox=-140,43.2,-65,67</a></li>
+</ul>
 <h4 id="temporal">Temporal</h4>
 <p>Query by a single time instant:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?time=1972-10-30">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?time=1972-10-30</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?datetime=1972-10-30">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?datetime=1972-10-30</a></li>
+</ul>
 <p>Query by a time extent:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?time=1972-10-30/2010-07-31">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?time=1972-10-30/2010-07-31</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?datetime=1972-10-30/2010-07-31">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?datetime=1972-10-30/2010-07-31</a></li>
+</ul>
+<p>Query by time extent with the open ended <code>..</code> keyword:</p>
+<ul>
+<li>Since a specific datetime: <a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=json&amp;STATION_NUMBER=07DA006&amp;datetime=2012-05-20/..">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=json&amp;STATION_NUMBER=07DA006&amp;datetime=2012-05-20/..</a></li>
+<li>Until a specific datetime: <a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=json&amp;STATION_NUMBER=07DA006&amp;datetime=../2015-11-11">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=json&amp;STATION_NUMBER=07DA006&amp;datetime=../2015-11-11</a></li>
+</ul>
 <h4 id="property">Property</h4>
 <p>Query by a feature collection property:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001</a></li>
+</ul>
 <h4 id="paging">Paging</h4>
 <h5 id="startindex">Startindex</h5>
 <p>The <code>startindex</code> parameter can be used to specify the record to start at when extracting
 features. The default value is 0 (first feature).</p>
+<h5 id="total-number-of-items">Total number of items</h5>
+<p>The <code>resulttype=hits</code> parameter is used to return the number of features found in a collection, without the actual features returned. The number of features is found in the response's <code>numberMatched</code> key.</p>
+<ul>
+<li>Example: <a href="https://api.weather.gc.ca/collections/ltce-stations/items?f=json&amp;resulttype=hits">https://api.weather.gc.ca/collections/ltce-stations/items?f=json&amp;resulttype=hits</a></li>
+</ul>
 <h5 id="limit">Limit</h5>
 <p>The <code>limit</code> parameter is used to define the maximum records to return as part of querying
-for features.  The default response size is 500 features.  Setting a <code>limit</code> of 0 results
-in returning only the number of features found (without the actual features returned).</p>
+for features. The default response size is 500 features.</p>
 <h5 id="paging-through-results">Paging through results</h5>
 <p>The <code>startindex</code> and <code>limit</code> parameters can be used in tandem to cycle through feature collections. The examples below demonstrate how to adjust and page through query results.</p>
 <p>Query and limit to features 1-2:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=2">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=2</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=2">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=2</a></li>
+</ul>
 <p>Query and limit to features 1-100:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=100">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=100</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=100">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;limit=100</a></li>
+</ul>
 <p>Query and limit to features 101-200:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;startindex=101&amp;limit=100">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;startindex=101&amp;limit=100</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;startindex=101&amp;limit=100">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;startindex=101&amp;limit=100</a></li>
+</ul>
 <h5 id="strategies-for-paging">Strategies for paging</h5>
 <p>The paging strategy is commonly used in support of performance when returning large data extraction. For example, a client could page by 1000 features to cycle through an entire station record:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=0&amp;limit=1000">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=0&amp;limit=1000</a></p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=1000&amp;limit=1000">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=1000&amp;limit=1000</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=0&amp;limit=1000">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=0&amp;limit=1000</a></li>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=1000&amp;limit=1000">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;startindex=1000&amp;limit=1000</a></li>
+</ul>
 <p>The client can then simply cycle through all items until there no longer any records. This would constitute the entire record.</p>
-<p>Another strategy that can be used is to query for all data without returning any records:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;limit=0">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=01AP004&amp;limit=0</a></p>
-<p>...and then inspecting the response (see <code>numberMatched</code>) to assess the size of the entire record.  The client can then decide how or whether to page accordingly.</p>
 <h4 id="combining-filter-parameters">Combining filter parameters</h4>
 <p>Query all daily mean data from a single station between 2001 and 2010:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;time=2001-01-01/2010-12-31">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;time=2001-01-01/2010-12-31</a></p>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;datetime=2001-01-01/2010-12-31">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?STATION_NUMBER=10CD001&amp;datetime=2001-01-01/2010-12-31</a></li>
+</ul>
 <h4 id="exporting-to-csv-format">Exporting to CSV format</h4>
 <p>Any query can be exported to CSV by adding <code>&amp;f=csv</code> to the request.</p>
 <h4 id="sorting">Sorting</h4>
-<p>Any query can be sorted by adding <code>sortby=PROPERTY:X</code>, where <code>PROPERTY</code> is the sort property and <code>X</code> is the sort order (<code>A</code> is ascending, <code>D</code> is descending).  Sort order is optional.  Sorting by multiple properties is supported by providing a comma-separated list to the <code>sortby</code> parameter.</p>
+<p>Any query can be sorted by adding the <code>+</code> and <code>-</code> signs before the property to specify the sort order, <code>+</code> for ascending (default) and <code>-</code> for descending. Sorting by multiple properties is supported by providing a comma-separated list to the <code>sortby</code> parameter. Examples:</p>
+<ul>
+<li><code>&amp;sortby=-PROPERTY</code> sorts the property in descending order</li>
+<li><code>&amp;sortby=PROPERTY</code> sorts the property in ascending order (best practice recommendation, without <code>+</code>)</li>
+</ul>
 <h3 id="access-by-identifier">Access by Identifier</h3>
 <p>Fetch a single feature by identifier:</p>
-<p><a href="https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?f=csv">https://geo.weather.gc.ca/geomet/features/collections/hydrometric-daily-mean/items?f=csv</a></p></div>
+<ul>
+<li><a href="https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=csv">https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?f=csv</a></li>
+</ul></div>
             </div>
         </div>
 

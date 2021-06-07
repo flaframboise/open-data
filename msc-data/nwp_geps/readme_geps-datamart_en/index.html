@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -160,7 +164,7 @@
 <p>This page describes the <a href="../readme_geps_en/">Global Ensemble Prediction System</a> data available in GRIB2 format.</p>
 <h2 id="data-location">Data location</h2>
 <p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available using the HTTP protocol and resides in a directory that is plainly accessible to a web browser. Visiting that directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file.</p>
+<p>The data is available using the HTTPS protocol and resides in a directory that is plainly accessible to a web browser. Visiting that directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file.</p>
 <p>The data can be accessed at the following URLs :</p>
 <ul>
 <li><a href="https://dd.weather.gc.ca/ensemble/geps/grib2">https://dd.weather.gc.ca/ensemble/geps/grib2/{TYPE}/{HH}/{hhh}/</a></li>
@@ -270,27 +274,27 @@
 <p>For ensemble products:</p>
 <ul>
 <li><strong>FPRATE-Accum-12h_SFC_0</strong>    : Freezing rain accumulated over a 12h period : 12h-384h every 12h</li>
-<li><strong>FPRATE-Accum-24h_SFC_0</strong>    : Freezing rain accumulated over a 24h period : 24h-384h every 24h</li>
+<li><strong>FPRATE-Accum-24h_SFC_0</strong>    : Freezing rain accumulated over a 24h period : 24h-384h every 12h</li>
 <li><strong>HEATX-Max-24h_TGL_2m</strong>      : Humidex 2m above ground - Maximum over a 24h period : 24h-384h every 24h</li>
 <li><strong>HEATX_TGL_2m</strong>              : Humidex 2m above ground : 3-384h every 3h</li>
-<li><strong>HGT_ISBL_0500</strong>               : Geopotential height 500 hPa : 3-384h every 12h</li>
+<li><strong>HGT_ISBL_0500</strong>               : Geopotential height 500 hPa : 12-384h every 12h</li>
 <li><strong>IPRATE-Accum-12h_SFC_0</strong>    : Ice pellet accumulated over a 12h period : 12h-384h every 12h</li>
-<li><strong>IPRATE-Accum-24h_SFC_0</strong>    : Ice pellet accumulated over a 24h period : 24h-384h every 24h</li>
+<li><strong>IPRATE-Accum-24h_SFC_0</strong>    : Ice pellet accumulated over a 24h period : 24h-384h every 12h</li>
 <li><strong>PRMSL_MSL_0</strong>               : Mean sea level pressure : 3-384h every 12h</li>
 <li><strong>RPRATE-Accum-12h_SFC_0</strong>    : Rain accumulated over a 12h period : 12h-384h every 12h</li>
-<li><strong>RPRATE-Accum-24h_SFC_0</strong>    : Rain accumulated over a 24h period : 24h-384h every 24h</li>
+<li><strong>RPRATE-Accum-24h_SFC_0</strong>    : Rain accumulated over a 24h period : 24h-384h every 12h</li>
 <li><strong>SPRATE-Accum-12h_SFC_0</strong>    : Snow (water equivalent) accumulated over a 12h period : 12h-384h every 12h</li>
-<li><strong>SPRATE-Accum-24h_SFC_0</strong>    : Snow (water equivalent) accumulated over a 24h period : 24h-384h every 24h</li>
+<li><strong>SPRATE-Accum-24h_SFC_0</strong>    : Snow (water equivalent) accumulated over a 24h period : 24h-384h every 12h</li>
 <li><strong>TCDC_SFC_0</strong>                : Cloud cover : 3-384h every 3h</li>
 <li><strong>TEMP-Max-24h_TGL_2m</strong>       : Temperature 2m above ground - Maximum over a 24h period : 24h-384h every 24h</li>
 <li><strong>TEMP-Min-24h_TGL_2m</strong>       : Temperature 2m above ground - Minimum over a 24h period : 24h-384h every 24h</li>
 <li><strong>TEMP_TGL_2m</strong>               : Temperature 2m above ground : 3-384h every 3h</li>
-<li><strong>TPRATE-Accum-120h_SFC_0</strong>   : Total precipitation accumulated over a 120h period : 120h-384h every 120h</li>
+<li><strong>TPRATE-Accum-120h_SFC_0</strong>   : Total precipitation accumulated over a 120h period : 120h-384h every 24h</li>
 <li><strong>TPRATE-Accum-12h_SFC_0</strong>    : Total precipitation accumulated over a 12h period : 12h-384h every 12h</li>
-<li><strong>TPRATE-Accum-24h_SFC_0</strong>   : Total precipitation accumulated over a 24h period : 24h-384h every 24h</li>
-<li><strong>TPRATE-Accum-48h_SFC_0</strong>    : Total precipitation accumulated over a 48h period : 48h-384h every 48h</li>
-<li><strong>TPRATE-Accum-72h_SFC_0</strong>    : Total precipitation accumulated over a 72h period : 72h-384h every 72h</li>
-<li><strong>TPRATE-Accum-96h_SFC_0</strong>    : Total precipitation accumulated over a 96h period : 96h-384h every 96h</li>
+<li><strong>TPRATE-Accum-24h_SFC_0</strong>   : Total precipitation accumulated over a 24h period : 24h-384h every 12h</li>
+<li><strong>TPRATE-Accum-48h_SFC_0</strong>    : Total precipitation accumulated over a 48h period : 48h-384h every 24h</li>
+<li><strong>TPRATE-Accum-72h_SFC_0</strong>    : Total precipitation accumulated over a 72h period : 72h-384h every 24h</li>
+<li><strong>TPRATE-Accum-96h_SFC_0</strong>    : Total precipitation accumulated over a 96h period : 96h-384h every 24h</li>
 <li><strong>WCF-Min-24h_TGL_2m</strong>        : Wind chill factor 2m above ground - Minimum over a 24h period : 24h-384h every 24h</li>
 <li><strong>WCF_TGL_2m</strong>               : Wind chill factor 2m above ground : 3-384h every 3h</li>
 <li><strong>WIND-Max-12h_TGL_10m</strong>      : Wind speed 10m above ground - Maximum over a 12h period : 12h-384h every 12h</li>

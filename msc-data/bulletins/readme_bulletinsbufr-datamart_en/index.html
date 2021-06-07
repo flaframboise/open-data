@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -160,7 +164,7 @@
 <p>This page describes the data of the binary <a href="../readme_bulletins_en/">bulletins</a>.</p>
 <h2 id="data-location">Data location</h2>
 <p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available via the HTTP protocol. It is possible to access it with a standard browser. </p>
+<p>The data is available via the HTTPS protocol. It is possible to access it with a standard browser. </p>
 <p>The data can be accessed at the following URLs :</p>
 <ul>
 <li>
@@ -198,12 +202,12 @@ using the BUFR Edition 4 code form (FM94), specified in the WMO Manual on Codes 
 <a href="https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/LatestVERSION/BC20-PILOT.pdf">https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/LatestVERSION/BC20-PILOT.pdf</a></p>
 <p>This data is in binary form and requires BUFR compliant software to be processed for viewing or decoding into ASCII or other formats. Several major 
 meteorological centers and meteorological research establishments make BUFR software available under free licenses. 
-The MSC provides libECBUFR, a BUFR library with user tools for decoding or encoding BUFR to and from ASCII : https://launchpad.net/libecbufr
+The MSC provides libECBUFR, a BUFR library with user tools for decoding or encoding BUFR to and from ASCII : https://github.com/ECCC-MSC/libecbufr
 Once libECBUFR is correctly installed, the following command line (under Unix/Linux/OSX) will provide a human-readable dump of the BUFR TEMP data: 
 bufr_decoder -inbufr data.bufr 
 where data.bufr is a BUFR file.</p>
 <p>Much useful information on installing and running libECBUFR is available in the FAQ list located at: 
-<a href="https://answers.launchpad.net/libecbufr/+faqs">https://answers.launchpad.net/libecbufr/+faqs</a></p>
+<a href="https://github.com/ECCC-MSC/libecbufr/wiki/FAQ">https://github.com/ECCC-MSC/libecbufr/wiki/FAQ</a></p>
 <h2 id="bulletin-search-script">Bulletin search script</h2>
 <p>To help you in your search, please refer to our bulletin search script which is available directly on the Datamart at:
 <a href="https://dd.weather.gc.ca/cgi-bin/bulletin_search.pl">https://dd.weather.gc.ca/cgi-bin/bulletin_search.pl</a></p>

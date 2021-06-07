@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -162,22 +166,20 @@
 <p><a href="https://meteo.gc.ca/radar/index_f.html">https://meteo.gc.ca/radar/index_f.html</a></p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le Protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GIF.</p>
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GIF.</p>
 <p>Les images radar se trouvent à l'adresse :</p>
-<p><a href="https://dd.meteo.gc.ca/radar/">https://dd.meteo.gc.ca/radar/{PRODUIT}/{FORMAT}/{STATION_RADAR}/{nom_du_fichier}.{extension}</a></p>
+<p><a href="https://dd.meteo.gc.ca/radar/">https://dd.meteo.gc.ca/radar/{PRODUIT}/{FORMAT}/{STATION_RADAR}</a></p>
 <p>où :</p>
 <ul>
-<li>PRODUIT = [24_HR_ACCUM | CAPPI | PRECIPET]</li>
+<li>PRODUIT = [24_HR_ACCUM | CAPPI | DPQPE | PRECIPET]</li>
 <li>FORMAT  = [GIF] (d'autres formats peuvent apparaître dans le futur)</li>
-<li>RADAR   = [WKR, XAM, ...]  code de 3 lettres du radar, en lettres majuscules. Pour les nouveaux radars S-band, code de 5 lettres (voir section ci-dessous).</li>
+<li>STATION_RADAR   = [WKR, XAM, ...]  code de 3 lettres du radar, en lettres majuscules. Pour les nouveaux radars S-band, code de 5 lettres (voir section ci-dessous).</li>
 </ul>
 <p>Un historique de 48 heures des données est conservé dans chaque répertoire.</p>
 <p><strong>Notes</strong>: </p>
 <ul>
-<li>Chacun de ces produits est détaillé dans la documentation d'Environnement et changement climatique Canada à l'adresse suivante :</li>
-</ul>
-<p>https://www.ec.gc.ca/meteo-weather/default.asp?lang=Fr&amp;n=2B931828-1 </p>
-<ul>
+<li>Chacun de ces produits est détaillé dans la <a href="https://www.ec.gc.ca/meteo-weather/default.asp?lang=Fr&amp;n=2B931828-1">documentation</a> d'Environnement et changement climatique Canada.</li>
+<li>Le produit d'estimation quantitative des précipitations à double polarisation (DPQPE) est disponible uniquement pour les radars de bande S. Il s'agit d'une représentation bidimensionnelle du taux de précipitation estimé par le plus bas du balayage du radar (angle d’élévation de 0.4 degré pour la majorité des radars en bande S). Ainsi, le taux de précipitation estimé est aussi proche que possible de la surface de la terre. Le produit DPQPE est basé, entre autres, sur une série d'étapes de traitement polarimétrique (contrôle qualité) pour éliminer les artefacts non météorologiques des données brutes (balayages volumétriques). Il est fourni en mm/h pour la pluie et cm/h pour la neige. Ce produit est utilisé dans notre composite radar nord-américaine haute résolution disponible dans <a href="https://www.canada.ca/fr/environnement-changement-climatique/services/conditions-meteorologiques-ressources-outils-generaux/meteocan.html">MétéoCan</a>, l'application mobile officielle d'ECCC.</li>
 <li>Une <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmos/public_doc/msc-data/obs_radar/radars_list.pdf">liste des sites radar</a> est disponible. Cette liste sera mise à jour régulièrement.</li>
 </ul>
 <h2 id="nomenclature-des-noms-de-fichiers">Nomenclature des noms de fichiers</h2>
@@ -230,13 +232,30 @@
 </ul>
 <p>ex: 200806191550_WHK_CAPPI_1.5_RAIN_AGL.gif</p>
 <ul>
-<li><strong>24_HR_ACCUM</strong> (basées sur le produit PRECIPET)</li>
+<li><strong>DPQPE</strong></li>
+</ul>
+<p>La nomenclature des fichiers DPQPE est la suivante :</p>
+<ul>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE_XXXXX_Rain.gif</li>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE_XXXXX_Snow.gif</li>
+</ul>
+<p>ex: 20201106T1050Z_MSC_Radar-DPQPE_CASBE_Rain.gif</p>
+<ul>
+<li><strong>24_HR_ACCUM</strong> </li>
 </ul>
 <p>Représente l'accumulation de précipitation en mm tel qu'observée par le radar au cours des 24 dernières heures.</p>
+<p><strong>Basée sur le produit PRECIPET</strong></p>
+<p>Ce produit est disponible toutes les 10 minutes pour les radars C-Band et toutes les 6 minutes pour les radars S-Band.</p>
 <ul>
 <li>YYYMMDDHHmm_XXX_24_HR_ACCUM_MM.gif</li>
 </ul>
 <p>ex: 200806161900_WBI_24_HR_ACCUM_MM.gif</p>
+<p><strong>Basée sur le produit DPQPE</strong></p>
+<p>Ce produit est disponible toutes les 6 minutes.</p>
+<ul>
+<li>YYYYMMDDTHHmmZ_MSC_Radar-DPQPE_XXXXX_Accum24h.gif</li>
+</ul>
+<p>ex: 20201106T1050Z_MSC_Radar-DPQPE_CASBE_Accum24h.gif</p>
 <h2 id="au-sujet-des-nouveaux-radars-a-double-polarisation-s-band">Au sujet des nouveaux radars à double polarisation S-Band</h2>
 <p>ECCC est en cours de remplacement de ses anciens radars C-Band avec de nouveaux radars à double polarisation S-Band. Ce projet de renouvellement des radars s'étendra sur plusieurs années et l'installation des nouveaux radars se fera progressivement(pour davantage d'information, voir la section de documentation des produits ci-dessous).</p>
 <p>Le 1er radar a déjà été installé à Radisson (Saskatchewan) et quelques produits sont déjà disponibles. Plusieurs changements affectant les produits/usagers sont planifiés dans ce projet. Ci-dessous figurent les plus importants :</p>

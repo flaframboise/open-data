@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -168,7 +172,7 @@
 <p>Under the Regional Deterministic Prediction System (RDPS), the numerical weather prediction model is run on a variable-step grid with a 10 km central core resolution. The fields in the 10 km resolution regional GRIB2 dataset are made available on a 935 x 824 polar-stereographic grid covering North America and adjacent waters with a 10 km resolution at 60°N.</p>
 <h2 id="data-location">Data location</h2>
 <p>MSC Datamart data can be <a href="../../../msc-datamart/amqp_en/">automatically retrieved with the Advanced Message Queuing Protocol (AMQP)</a> as soon as they become available. An <a href="../../../usage/readme_en/">overview and examples to access and use the Meteorological Service of Canada's open data</a> is also available.</p>
-<p>The data is available using the HTTP protocol and resides in a directory that is plainly accessible to a web browser. Visiting that directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file.</p>
+<p>The data is available using the HTTPS protocol and resides in a directory that is plainly accessible to a web browser. Visiting that directory with an interactive browser will yield a raw listing of links, each link being a downloadable GRIB2 file.</p>
 <p>The data can be accessed at the following URLs: </p>
 <ul>
 <li><a href="https://dd.weather.gc.ca/model_gem_regional/10km/grib2">https://dd.weather.gc.ca/model_gem_regional/10km/grib2/{HH}/{hhh}/</a></li>
@@ -238,10 +242,23 @@
 <p>CMC_reg_DEPR_ISBL_1015_ps10km_2010091306_P027.grib2</p>
 <p>This file originates from the Canadian Meteorological Center (CMC) and contains the data of the RDPS. The data in the file start on September 13th 2010 at 06Z (2010091306). It contains the dew point depression (DEPR) at the isobaric level 1015 mb (ISBL_1015) on a polar-stereographic at 10km resolution (ps10km) for the forecast hour 27 (P027) in GRIB2 format (.grib2).</p>
 <h2 id="levels">Levels</h2>
-<p>Vertical coverage of three-dimensional fields is provided by up to 28 isobaric levels.</p>
+<p>Vertical coverage of three-dimensional fields is provided by up to 33 isobaric levels.</p>
+<ul>
+<li>
 <p>Isobaric levels (hPa): 1015, 1000, 985, 970, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 275, 250, 225, 200, 175, 150, 100, 50.</p>
-<p>Some fields receive limited three-dimensional coverage of 4 levels in the vertical.</p>
-<p>Isobaric levels (reduced coverage, hPa): 850, 700, 500, 250.</p>
+<ul>
+<li>
+<p>Additional levels 30, 20, 10, 5 et 1 hPa for the variables TMP, HGT, UGRD, VGRD, WIND, WDIR, SPFH</p>
+</li>
+<li>
+<p>Additional levels 30, 20 et 10 hPa for the variables RH et DEPR</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Some fields receive limited three-dimensional coverage of five levels in the vertical, namely 850, 700, 600, 500, 250 hPa.</p>
+</li>
+</ul>
 <p>Additional levels that may be applicable to a given parameter are :</p>
 <ul>
 <li>Surface</li>

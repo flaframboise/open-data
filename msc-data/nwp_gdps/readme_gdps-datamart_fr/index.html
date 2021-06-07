@@ -75,11 +75,15 @@
 </li>
                                     
 <li>
-    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">API usage from a Python script /<br>Utiliser l'API dans un script Python</a>
+    <a href="../../../usage/use-case_arthur/use-case_arthur_en/" class="dropdown-item">Make WMS Requests from Python /<br>Faire des requêtes WMS avec Python</a>
 </li>
                                     
 <li>
-    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API Features in QGIS /<br>Utiliser OGC API Features dans QGIS</a>
+    <a href="../../../usage/tutorial_OAFeat_QGIS_en/" class="dropdown-item">Use OGC API - Features in QGIS /<br>Utiliser OGC API - Features dans QGIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -164,7 +168,7 @@
 <p>Les champs du jeu de données GRIB2 du <a href="../readme_gdps_fr/">Système global de prévision déterministe (SGPD)</a> sont disponibles sur une grille latitude-longitude à une résolution effective d’environ 15 km et 25 km.</p>
 <h2 id="adresse-des-donnees">Adresse des données</h2>
 <p>Les données du Datamart du SMC peuvent être <a href="../../../msc-datamart/amqp_fr/">automatiquement récupérées avec le protocole avancé de mise en file d'attente des messages (AMQP)</a> dès qu'elles deviennent disponibles. Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est également disponible.</p>
-<p>Les données sont disponibles via le protocole HTTP. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
+<p>Les données sont disponibles via le protocole HTTPS. Il est possible d’y accéder avec un fureteur standard. Dans ce cas, on obtient une liste de liens donnant accès à un fichier GRIB2.</p>
 <p>Les données sont accessibles à adresse suivante :</p>
 <p><a href="https://dd.meteo.gc.ca/model_gem_global">https://dd.meteo.gc.ca/model_gem_global/{RES}/grib2/lat_lon/{HH}/{hhh}/</a></p>
 <p>où :</p>
@@ -252,10 +256,23 @@
 CMC_glb_TMP_ISBL_925_latlon.15x.15_2019101512_P042.grib2</p>
 <p>Le fichier débute le 15 octobre 2019 à 12Z (2019101512). Il a été créé par le CMC et contient une prévision du SGPD. Il contient les composantes de la température (TMP), au niveau isobarique 925 mb (ISBL_925), pour l’heure de prévision 42 (P042) en format GRIB2 (.grib2).</p>
 <h2 id="niveaux">Niveaux</h2>
-<p>La couverture verticale des champs tridimensionnels peut atteindre jusqu’à 28 niveaux isobariques.</p>
+<p>La couverture verticale des champs tridimensionnels peut atteindre jusqu’à 33 niveaux isobariques.</p>
+<ul>
+<li>
 <p>Niveaux isobariques (hPa) : 1015, 1000, 985, 970, 950, 925, 900, 850, 800, 750, 700, 650, 600, 550, 500, 450, 400, 350, 300, 275, 250, 225, 200, 175, 150, 100, 50.</p>
-<p>Certains champs reçoivent une couverture verticale limitée à quatre niveaux isobariques.</p>
-<p>Niveaux isobariques (couverture réduite, hPa): 850, 700, 500, 250.</p>
+<ul>
+<li>
+<p>Niveaux additionnels 30, 20, 10, 5 et 1 hPa pour les variables TMP, HGT, UGRD, VGRD, WIND, WDIR, SPFH</p>
+</li>
+<li>
+<p>Niveaux additionnels 30, 20 et 10 hPa pour les variables RH et DEPR</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Certains champs reçoivent une couverture verticale limitée à cinq niveaux isobariques, soit 850, 700, 600, 500, 250 hPa.</p>
+</li>
+</ul>
 <p>Autres types de niveaux qui pourraient être applicables à certains champs :</p>
 <ul>
 <li>Surface</li>
