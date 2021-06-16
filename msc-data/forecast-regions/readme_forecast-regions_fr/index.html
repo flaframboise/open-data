@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Readme raqdps fw geomet en - MSC Open Data / Données ouvertes du SMC</title>
+        <title>Readme forecast regions fr - MSC Open Data / Données ouvertes du SMC</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -124,21 +124,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#raqdps-fw-data-available-on-msc-geomet" class="nav-link">RAQDPS-FW data available on MSC GeoMet</a>
+            <li class="nav-item" data-level="1"><a href="#donnees-et-produits-du-progiciel-de-geographie-du-smc" class="nav-link">Données et produits du progiciel de géographie du SMC</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#access-to-the-geospatial-web-services" class="nav-link">Access to the geospatial web services</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
+            <li class="nav-item" data-level="2"><a href="#acces" class="nav-link">Accès</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#support" class="nav-link">Support</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#announcement-mailing-list" class="nav-link">Announcement mailing list</a>
+            <li class="nav-item" data-level="2"><a href="#documentation-technique" class="nav-link">Documentation technique</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -149,70 +141,28 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p><a href="../readme_raqdps-fw-geomet_fr/">En français</a></p>
+<p><a href="../readme_forecast-regions_en/">In English</a></p>
 <p><img alt="ECCC logo" src="../../../img_eccc-logo.png" /></p>
-<p><a href="../../../readme_en/">TOC</a> &gt; <a href="../../readme_en/">MSC data</a> &gt; <a href="../readme_raqdps-fw_en/">RAQDPS-FW</a> &gt; RAQDPS-FireWork on MSC GeoMet</p>
-<h1 id="raqdps-fw-data-available-on-msc-geomet">RAQDPS-FW data available on MSC GeoMet</h1>
-<p>MSC GeoMet provides access to data produced by the Regional Air Quality Deterministic Prediction System - FireWork (RAQDPS-FW) model. Users can build mobile apps, create interactive web maps, and display and animate RAQDPS-FW data using MSC GeoMet's various services.</p>
-<h2 id="access-to-the-geospatial-web-services">Access to the geospatial web services</h2>
-<p>The RAQDPS-FW data is <a href="../../../msc-geomet/readme_en/">available on GeoMet-Weather via the Web Map Service (WMS) and Web Coverage Service (WCS) standards</a>.</p>
-<p>Example of a web map configured to display the <a href="https://geo.weather.gc.ca/geomet?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities&amp;layer=RAQDPS-FW.EATM_PM2.5-DIFF">RAQDPS-FW.EATM_PM2.5-DIFF</a> layer served by MSC GeoMet:</p>
-<div id="map" style="height: 400px;"></div>
-<div id="controller" role="group" aria-label="Animation controls" style="background: #ececec; padding: 0.5rem;">
-  <button id="play" class="btn btn-primary btn-sm" type="button"><i class="fa fa-play" style="padding: 0rem 1rem"></i></button>
-  <button id="pause" class="btn btn-primary btn-sm" type="button"><i class="fa fa-pause" style="padding: 0rem 1rem"></i></button>
-  <button id="exportmap" class="btn btn-primary btn-sm" type="button"><i class="fa fa-download" style="padding: 0rem 1rem"></i></button>
-  <span id="info" style="padding-left: 0.5rem;"></span>
-</div>
-
-<h2 id="usage">Usage</h2>
-<p>The <a href="../../../usage/readme_en/">usage overview page</a> provides generic information on using OGC services with desktop software, mobile apps, interactive web maps and direct access. Please refer to the <a href="../../../msc-geomet/readme_en/">tutorials and technical documentation on MSC GeoMet geospatial web services</a> for detailed information.</p>
-<h3 id="available-layers">Available layers</h3>
-<p>To see which RAQDPS-FW layers are served via MSC GeoMet, consult the service's <a href="https://geo.weather.gc.ca/geomet?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities">WMS GetCapabilities document</a>. </p>
-<p>Desktop GIS software such as QGIS also makes it easy to <a href="../../../usage/tutorial_WMS_QGIS_en/">navigate the WMS Get Capabilities document as a layer tree</a>.</p>
-<h3 id="usage-tips">Usage tips</h3>
-<p>Retrieving the available model runs and forecast hours available for a given RAQDPS-FW layer:</p>
+<p><a href="../../../readme_fr/">TdM</a> &gt; <a href="../../readme_fr/">Données du SMC</a> &gt; Polygones des emplacements de prévision</p>
+<h1 id="donnees-et-produits-du-progiciel-de-geographie-du-smc">Données et produits du progiciel de géographie du SMC</h1>
+<p>Cette page décrit le progiciel normalisé de système d’information géographique (SIG) du SMC fondé sur des fichiers et des polygones d’emplacements de prévision.</p>
+<p>Ce progiciel inclue des shapefiles et des ensembles de polygones, catégorisés selon diverses couches, toutes avec l’information sur les attributs qui leur sont associés.</p>
+<h2 id="acces">Accès</h2>
+<h3 id="comment-acceder-aux-donnees">Comment accéder aux données</h3>
+<p>Ces données sont respectivement disponibles sur les services du serveur de données <a href="../../../msc-datamart/readme_fr/">Datamart du SMC</a> :</p>
 <ul>
-<li>Users can use the <code>layer</code> query parameter in WMS GetCapabilities requests to point to a specific layer and retrieve a smaller XML payload with up-to-date temporal dimensions (see the <code>&lt;Dimension&gt;</code> tags). Example: <a href="https://geo.weather.gc.ca/geomet?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities&amp;layer=RAQDPS-FW.EATM_PM2.5-DIFF">https://geo.weather.gc.ca/geomet?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities&amp;layer=RAQDPS-FW.EATM_PM2.5-DIFF</a></li>
-<li>Additional information is available in the <a href="../../../msc-geomet/web-services_en#handling-time">handling time with WMS section</a></li>
+<li><a href="https://dd.meteo.gc.ca/meteocode/geodata/version_6.5.0">Données shapefiles disponibles sur le Datamart du SMC</a> </li>
 </ul>
-<p>WMS styles:</p>
+<p>Un <a href="../../../usage/readme_fr/">survol et exemples pour accéder et utiliser les données ouvertes du Service météorologique du Canada</a> est disponible.</p>
+<h3 id="licence">Licence</h3>
+<p>La <a href="../../../licence/readme_fr/">licence d’utilisation finale pour les serveurs de données d’Environnement et Changement climatique Canada</a> précise les conditions d'utilisation de ces données.</p>
+<h3 id="metadonnees">Métadonnées</h3>
+<p>Non disponibles.</p>
+<h2 id="documentation-technique">Documentation technique</h2>
 <ul>
-<li>In addition to the default WMS style, several alternative WMS styles with different color scales are available. The list of available WMS styles is provided in the WMS GetCapabilities response.</li>
-<li>Furthermore, users can request layers with their own custom styles with the Styled Layer Descriptor (SLD) standard, please refer to the <a href="../../../msc-geomet/web-services_en#handling-styles">SLD technical documentation</a>.</li>
-</ul>
-<p>Legends:</p>
-<ul>
-<li>Legends are available for every WMS style. Details are provided in <a href="../../../msc-geomet/web-services_en#wms-getlegendgraphic">the WMS legend technical documentation</a>.</li>
-<li>Legend retrieval request example: <code>https://geo.weather.gc.ca/geomet?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=RAQDPS-FW.EATM_PM2.5-DIFF&amp;format=image/png&amp;STYLE=FW-EATM-PM-DIFF_UGM2</code>.</li>
-</ul>
-<p><img alt="The RAQDPS-FW.EATM_PM2.5-DIFF [ug/m^2] WMS legend" src="https://geo.weather.gc.ca/geomet?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=RAQDPS-FW.EATM_PM2.5-DIFF&amp;format=image/png&amp;STYLE=FW-EATM-PM-DIFF_UGM2" /></p>
-<h2 id="support">Support</h2>
-<p>The MSC GeoMet services are operational 24/7. User support is provided on a best-effort basis during normal business hours. If you have any questions about these services, please <a href="https://weather.gc.ca/mainmenu/contact_us_e.html">contact us</a>.</p>
-<h2 id="announcement-mailing-list">Announcement mailing list</h2>
-<p>We encourage users to subscribe to the <a href="https://lists.ec.gc.ca/cgi-bin/mailman/listinfo/geomet-info">GeoMet-Info</a> announcement mailing list to be informed of enhancements and changes to the MSC GeoMet services.</p>
-<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" integrity="sha256-rQq4Fxpq3LlPQ8yP11i6Z2lAo82b6ACDgd35CKyNEBw=" crossorigin="anonymous" /></p>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js" integrity="sha256-77IKwU93jwIX7zmgEBfYGHcmeO0Fx2MoWB/ooh9QkBA=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-<script>
-    function isIE() {
-      return window.navigator.userAgent.match(/(MSIE|Trident)/);
-    }
-    var head = document.getElementsByTagName('head')[0];
-    var js = document.createElement("script");
-    js.type = "text/javascript";
-    if (isIE())
-    {
-        js.src = "../../../js/raqdps-fw_ie.js";
-        document.getElementById("controller").setAttribute("hidden", true);
-    }
-    else
-    {
-        js.src = "../../../js/raqdps-fw.js";
-    }
-    head.appendChild(js);
-</script></div>
+<li>Version actuelle <a href="https://dd.meteo.gc.ca/meteocode/geodata/version_6.5.0/Documentations/">du regroupement géographique du SMC</a>.</li>
+<li>Les 3 dernières versions sont disponibles <a href="https://dd.meteo.gc.ca/meteocode/geodata/">ici</a>.</li>
+</ul></div>
             </div>
         </div>
 
